@@ -1,32 +1,30 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import NewsCard from "./NewsCard";
+import Container from "@mui/material/Container";
+import Grid from "@mui/material/Grid";
 
 const News = () => {
-    const [news, setNews] = useState([]);
-    console.log(news);
+    const [allnews, setAllNews] = useState([]);
+    console.log("allnews", allnews);
 
     useEffect(() => {
         fetch("/api/news").then((res) =>
-            res.json().then((data) => setNews(data))
+            res.json().then((data) => setAllNews(data))
         );
     }, []);
 
     return (
-        <div>
-            <h1>News component</h1>
-            {!news ? (
-                <p>loading...</p>
-            ) : (
-                news.map((eachNews, index) => (
-                    <li key={index}>
-                        <h2>{eachNews.title}</h2>
-                        <p>{eachNews.description}</p>
-                        <h4> {eachNews.category}</h4>
-                        <h6>{eachNews.location}</h6>
-                        <h4> {eachNews.created_at}</h4>
-                    </li>
-                ))
-            )}
-        </div>
+        <Container>
+            <Grid container spacing={2}>
+                {!allnews ? (
+                    <p>loading...</p>
+                ) : (
+                    allnews.map((news, index) => (
+                        <NewsCard key={index} news={news} />
+                    ))
+                )}
+            </Grid>
+        </Container>
     );
 };
 

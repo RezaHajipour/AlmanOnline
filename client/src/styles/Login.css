@@ -1,0 +1,84 @@
+/* 
+*************************************************************
+------------------------LOGIN ----------------------------
+************************************************************* */
+.login-container {
+    width: 25vw;
+    text-align: center;
+    color: white;
+    box-shadow: 3px 10px 20px 5px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: row;
+}
+.login-form {
+    width: 25vw;
+    padding: 20px 0;
+    /* background: rgba(20, 40, 40, 0.8); */
+    background: rgba(225, 227, 228);
+    transition: 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-form-h2 {
+    font-weight: 300;
+    color: rgba(20, 20, 20, 0.8);
+}
+
+.login-form-ul {
+    list-style-type: none;
+    padding: 0;
+}
+.login-input {
+    margin: 15px 0;
+    font-size: 16px;
+    padding: 10px;
+    width: 20vw;
+    border: 1px solid #6b0909;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: rgba(20, 20, 20, 0.2);
+    outline: none;
+}
+
+.login-Btn {
+    border: 1px solid #6b0909;
+    background: rgba(20, 20, 20, 0.6);
+    font-size: 18px;
+    color: white;
+    margin-top: 15px;
+    padding: 10px 45px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.login-Btn:hover {
+    background: rgba(20, 20, 20, 0.671);
+}
+.login-p {
+    margin-top: 1.5rem;
+    color: rgba(20, 20, 20, 0.8);
+}
+.login-p2 {
+    margin-top: 1.5rem;
+}
+.register-here:link {
+    color: #6b0909;
+    text-decoration: none;
+}
+.register-here:visited {
+    color: #6b0909;
+    text-decoration: none;
+}
+.register-here:hover {
+    color: white;
+    background-color: rgba(20, 20, 20, 0.671);
+    border: 1px solid #6b0909;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+}
