@@ -1,10 +1,6 @@
-import News from "./News";
+// import News from "./News";
 const Home = () => {
-    return (
-        <div>
-            <News />
-        </div>
-    );
+    return <div>home</div>;
 };
 
 export default Home;

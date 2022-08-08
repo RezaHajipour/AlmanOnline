@@ -11,6 +11,7 @@ const {
     createNews,
     // updateNewsByUserId,
 } = require("./db");
+const uploader = require("./uploader");
 
 app.use(compression());
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
@@ -46,7 +47,7 @@ app.post("/api/users", function (req, res) {
 });
 // **********************------LOGIN------********************************
 app.post("/api/login", function (req, res) {
-    console.log("loging request body", req.body);
+    // console.log("loging request body", req.body);
     const { email, password } = req.body;
     if (!email || !password) {
         res.statusCode = 401;
@@ -103,6 +104,18 @@ app.post("/api/news", async function (req, res) {
     res.json({ addNews });
 });
 
+app.post("/upload", uploader.single("singleNewsImage"), function (req, res) {
+    // If nothing went wrong the file is already in the uploads directory
+    if (req.file) {
+        res.json({
+            success: true,
+        });
+    } else {
+        res.json({
+            success: false,
+        });
+    }
+});
 // app.put("/api/users/me/addnews", async function (req, res) {
 //     const news = await updateNewsByUserId({
 //         user_id: req.session.user_id,

@@ -1,5 +1,4 @@
 import "../styles/AddNews.css";
-// import NewsCard from "./NewsCard";
 import { useState } from "react";
 
 function AddNews(user) {
@@ -33,8 +32,14 @@ function AddNews(user) {
 
     return (
         <div>
-            <form onSubmit={onSubmit} className="AddNews-form">
-                <h1> Dear collegue please write news in this form</h1>
+            <form
+                action="/upload"
+                method="POST"
+                encType="multipart/form-data"
+                onSubmit={onSubmit}
+                className="AddNews-form"
+            >
+                <h1> Please write your news in this form</h1>
 
                 <p>
                     News Title
@@ -91,15 +96,16 @@ function AddNews(user) {
                     <input
                         type="file"
                         accept="image/*"
-                        name="avatar"
-                        id="image"
-                        placeholder="news images"
-                        required
+                        name="singleNewsImage"
                     />
                 </p>
                 <br />
-
                 <button className="AddNews-btn">Add News</button>
+            </form>
+            <form action="/upload" method="POST" encType="multipart/form-data">
+                <input type="file" accept="image/*" name="singleNewsImage" />
+
+                <button type="submit" className="AddNews-btn"></button>
             </form>
         </div>
     );

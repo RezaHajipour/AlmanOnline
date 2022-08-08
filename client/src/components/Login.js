@@ -31,13 +31,14 @@ function Login() {
         });
     }
     return (
-        <div className="login-container">
-            <form onSubmit={onSubmit} className="login-form">
-                <h2 className="login-form-h2">Login</h2>
-                <ul className="login-form-ul">
+        <div className="loginContainer">
+            <form onSubmit={onSubmit} className="loginForm">
+                <h2 className="loginTitle">Login</h2>
+
+                <ul className="loginUl">
                     <li>
                         <input
-                            className="login-input"
+                            className="loginInput"
                             type="email"
                             name="email"
                             required
@@ -47,7 +48,7 @@ function Login() {
                     </li>
                     <li>
                         <input
-                            className="login-input"
+                            className="loginInput"
                             type="password"
                             name="password"
                             required
@@ -56,16 +57,10 @@ function Login() {
                         />
                     </li>
                     <li>
-                        <button type="submit" className="login-Btn">
+                        <button type="submit" className="loginBtn">
                             LOGIN
                         </button>
                     </li>
-                    <p className="login-p">Don't have an account yet?</p>
-                    <p className="login-p2">
-                        <Link to="/register" className="register-here">
-                            REGISTER HERE
-                        </Link>
-                    </p>
                 </ul>
             </form>
         </div>

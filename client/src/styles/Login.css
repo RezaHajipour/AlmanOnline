@@ -1,8 +1,4 @@
-/* 
-*************************************************************
-------------------------LOGIN ----------------------------
-************************************************************* */
-.login-container {
+.loginContainer {
     width: 25vw;
     text-align: center;
     color: white;
@@ -11,34 +7,37 @@
     justify-content: center;
     align-items: stretch;
     flex-direction: row;
+    border-radius: 13px;
 }
-.login-form {
+.loginForm {
     width: 25vw;
     padding: 20px 0;
-    /* background: rgba(20, 40, 40, 0.8); */
-    background: rgba(225, 227, 228);
-    transition: 0.2s;
+    background-color: #cfd2cf;
+    /* transition: 0.2s; */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
+    border-radius: 13px;
+    border: 1.5px solid gray;
 }
 
-.login-form-h2 {
+.loginTitle {
     font-weight: 300;
-    color: rgba(20, 20, 20, 0.8);
+    color: rgb(53, 61, 69);
 }
 
-.login-form-ul {
+.loginUl {
     list-style-type: none;
     padding: 0;
 }
-.login-input {
+.loginInput {
     margin: 15px 0;
     font-size: 16px;
     padding: 10px;
     width: 20vw;
-    border: 1px solid #6b0909;
+    border: 1px solid #e65c4f;
+    border-radius: 5px;
     border-top: none;
     border-left: none;
     border-right: none;
@@ -46,39 +45,18 @@
     outline: none;
 }
 
-.login-Btn {
-    border: 1px solid #6b0909;
-    background: rgba(20, 20, 20, 0.6);
-    font-size: 18px;
-    color: white;
-    margin-top: 15px;
-    padding: 10px 45px;
-    cursor: pointer;
-    transition: 0.4s;
-}
-.login-Btn:hover {
-    background: rgba(20, 20, 20, 0.671);
-}
-.login-p {
-    margin-top: 1.5rem;
-    color: rgba(20, 20, 20, 0.8);
-}
-.login-p2 {
-    margin-top: 1.5rem;
-}
-.register-here:link {
-    color: #6b0909;
-    text-decoration: none;
-}
-.register-here:visited {
-    color: #6b0909;
-    text-decoration: none;
-}
-.register-here:hover {
-    color: white;
-    background-color: rgba(20, 20, 20, 0.671);
-    border: 1px solid #6b0909;
+.loginBtn {
+    color: #f8f8f8;
+    background: rgb(217, 82, 69);
+    border: 1px solid rgb(217, 82, 69);
+    border-radius: 5px;
     padding: 10px;
     cursor: pointer;
     text-decoration: none;
+    width: 50%;
+    font-size: large;
+}
+.loginBtn:hover {
+    background-color: rgb(189, 76, 65);
+    border: 1px solid rgb(217, 82, 69);
 }

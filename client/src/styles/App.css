@@ -1,0 +1,12 @@
+.AppContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #f8f8f8;
+    height: 90vh;
+}
+
+.appTitle {
+    color: rgb(53, 61, 69);
+}
