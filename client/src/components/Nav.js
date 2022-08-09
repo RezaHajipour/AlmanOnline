@@ -36,7 +36,7 @@ const Nav = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="sticky">
             <Container maxWidth="xl" className={classes.mainContainer}>
                 <Toolbar disableGutters>
                     <AdbIcon
@@ -123,7 +123,7 @@ const Nav = () => {
                                         sx={{
                                             fontFamily: "Noto Sans Arabic",
                                             fontWeight: 400,
-                                            color: "red",
+                                            color: "inherit",
                                         }}
                                     >
                                         <RouterLink
@@ -153,7 +153,7 @@ const Nav = () => {
                             fontFamily: "Noto Sans Arabic",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
-                            color: "orange",
+                            color: "inherit",
                             textDecoration: "none",
                         }}
                     >
@@ -201,8 +201,9 @@ export default Nav;
 
 const useStyles = makeStyles(() => ({
     mainContainer: {
-        background: "#1b5583",
-        color: "#F7D66A",
+        height: "10vh",
+        background: " #e1e1e1",
+        color: "#151922",
     },
-    link: { textDecoration: "none", color: "#F7D66A" },
+    link: { textDecoration: "none", color: "#151922" },
 }));

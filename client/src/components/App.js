@@ -2,6 +2,7 @@ import "../styles/App.css";
 import { BrowserRouter, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Nav from "./Nav";
+import Footer from "./Footer";
 import Home from "./Home";
 import Login from "./Login";
 import News from "./News";
@@ -23,6 +24,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <Nav />
+            <Footer />
             <div className="AppContainer">
                 <Route path="/" exact>
                     <Home />

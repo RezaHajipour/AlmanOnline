@@ -2,6 +2,7 @@
 import { useEffect, useState } from "react";
 import NewsCard from "./NewsCard";
 import Grid from "@mui/material/Unstable_Grid2";
+import Link from "@mui/material/Link";
 
 const News = () => {
     const [allnews, setAllNews] = useState([]);
@@ -16,15 +17,25 @@ const News = () => {
     return (
         <Grid
             container
-            spacing={{ xs: 2, md: 3 }}
-            columns={{ xs: 4, sm: 8, md: 12 }}
+            rowSpacing={2}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+            sx={{ width: "80%", mt: 2 }}
         >
             {!allnews ? (
                 <p>loading...</p>
             ) : (
                 allnews.map((news, index) => (
-                    <Grid xs={2} sm={4} md={4} key={index}>
-                        <NewsCard news={news} />
+                    <Grid item key={index}>
+                        <Link
+                            component="button"
+                            variant="body2"
+                            underline="none"
+                            onClick={() => {
+                                console.info("I'm a button.");
+                            }}
+                        >
+                            <NewsCard news={news} />
+                        </Link>
                     </Grid>
                 ))
             )}
@@ -33,6 +44,26 @@ const News = () => {
 };
 
 export default News;
+
+//     return (
+//         <Grid
+//             container
+//             spacing={{ xs: 2, md: 3 }}
+//             columns={{ xs: 4, sm: 8, md: 12 }}
+//             sx={{ width: "75%", mt: 2 }}
+//         >
+//             {!allnews ? (
+//                 <p>loading...</p>
+//             ) : (
+//                 allnews.map((news, index) => (
+//                     <Grid xs={2} sm={4} md={4} key={index}>
+//                         <NewsCard news={news} />
+//                     </Grid>
+//                 ))
+//             )}
+//         </Grid>
+//     );
+// };
 
 // import ImageList from "@mui/material/ImageList";
 // import ImageListItem from "@mui/material/ImageListItem";
