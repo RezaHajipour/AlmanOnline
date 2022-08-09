@@ -1,33 +1,45 @@
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
+import "../styles/newscard.css";
+import Paper from "@mui/material/Paper";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 
-const NewsCard2 = ({ news }) => {
+const NewsCard = ({ news }) => {
+    console.log("news card", news);
     return (
-        <Card sx={{ maxWidth: 345 }}>
-            <CardMedia
-                component="img"
-                alt="green iguana"
-                height="140"
-                image={news.news_picture_url}
-            />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    {news.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {news.description}
-                </Typography>
-            </CardContent>
-            <CardActions>
-                <Button size="small">Share</Button>
-                <Button size="small">Learn More</Button>
-            </CardActions>
-        </Card>
+        <Grid item xs={3}>
+            <Paper elevation={3} square>
+                <img
+                    src={news.news_picture_url}
+                    className="newsImg"
+                    alt="news image"
+                    height="140"
+                />
+                <Box paddingX={1}>
+                    <Typography variant="subtitle2" component="h2">
+                        {news.title}
+                    </Typography>
+                    <Typography variant="body2" component="h4">
+                        {news.description}
+                    </Typography>
+                </Box>
+                <Box paddingX={1}>
+                    <Typography variant="body2" component="p">
+                        category:{news.category}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        location:{news.location}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                        Published on <span></span>
+                        <time>
+                            {new Date(news.created_at).toLocaleDateString()}
+                        </time>
+                    </Typography>
+                </Box>
+            </Paper>
+        </Grid>
     );
 };
 
-export default NewsCard2;
+export default NewsCard;

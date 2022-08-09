@@ -12,8 +12,16 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import AdbIcon from "@mui/icons-material/Adb";
 import { makeStyles } from "@mui/styles";
+import { NavLink as RouterLink } from "react-router-dom";
 
-const pages = ["اخبار", "اصلاعات عمومی آلمان", "اقامت", "تحصیل"];
+const pages = [
+    { title: "جستجوی مشاغل", link: "/www.rezahajipur.com" },
+    { title: "ایونتها", link: "/" },
+    { title: "تحصیل", link: "/" },
+    { title: "اقامت", link: "/login" },
+    { title: "اصلاعات عمومی آلمان", link: "/addnews" },
+    { title: "اخبار", link: "/news" },
+];
 
 const Nav = () => {
     const classes = useStyles();
@@ -32,7 +40,14 @@ const Nav = () => {
             <Container maxWidth="xl" className={classes.mainContainer}>
                 <Toolbar disableGutters>
                     <AdbIcon
-                        sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
+                        sx={{
+                            display: {
+                                xs: "none",
+                                md: "flex",
+                                color: "red",
+                            },
+                            mr: 1,
+                        }}
                     />
                     <Typography
                         className={classes.logo}
@@ -42,8 +57,11 @@ const Nav = () => {
                         href="/"
                         sx={{
                             mr: 2,
-                            display: { xs: "none", md: "flex" },
-                            fontFamily: "monospace",
+                            display: {
+                                xs: "none",
+                                md: "flex",
+                            },
+                            fontFamily: "Noto Sans Arabic",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
                             color: "inherit",
@@ -84,16 +102,37 @@ const Nav = () => {
                             open={Boolean(anchorElNav)}
                             onClose={handleCloseNavMenu}
                             sx={{
-                                display: { xs: "block", md: "none" },
+                                display: {
+                                    xs: "block",
+                                    md: "flex",
+                                },
                             }}
                         >
                             {pages.map((page) => (
                                 <MenuItem
                                     key={page}
                                     onClick={handleCloseNavMenu}
+                                    // sx={{
+                                    //     display: {
+                                    //         xs: "block",
+                                    //     },
+                                    // }}
                                 >
-                                    <Typography textAlign="center">
-                                        {page}
+                                    <Typography
+                                        textAlign="center"
+                                        sx={{
+                                            fontFamily: "Noto Sans Arabic",
+                                            fontWeight: 400,
+                                            color: "red",
+                                        }}
+                                    >
+                                        <RouterLink
+                                            to={page.link}
+                                            activeClassName={classes.navLink}
+                                            className={classes.link}
+                                        >
+                                            {page.title}
+                                        </RouterLink>
                                     </Typography>
                                 </MenuItem>
                             ))}
@@ -111,10 +150,10 @@ const Nav = () => {
                             mr: 2,
                             display: { xs: "flex", md: "none" },
                             flexGrow: 1,
-                            fontFamily: "monospace",
+                            fontFamily: "Noto Sans Arabic",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
-                            color: "inherit",
+                            color: "orange",
                             textDecoration: "none",
                         }}
                     >
@@ -123,16 +162,32 @@ const Nav = () => {
                     <Box
                         sx={{
                             flexGrow: 1,
-                            display: { xs: "none", md: "flex" },
+                            display: {
+                                xs: "none",
+                                md: "flex",
+                                justifyContent: "flex-end",
+                            },
                         }}
                     >
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: "white", display: "block" }}
+                                sx={{
+                                    fontFamily: "Noto Sans Arabic",
+                                    fontWeight: 700,
+                                    my: 2,
+                                    color: "#f8f8f8",
+                                    display: "block",
+                                }}
                             >
-                                {page}
+                                <RouterLink
+                                    to={page.link}
+                                    activeClassName={classes.navLink}
+                                    className={classes.link}
+                                >
+                                    {page.title}
+                                </RouterLink>
                             </Button>
                         ))}
                     </Box>
@@ -146,10 +201,8 @@ export default Nav;
 
 const useStyles = makeStyles(() => ({
     mainContainer: {
-        background: "#111111",
-        color: "#E65C4F",
+        background: "#1b5583",
+        color: "#F7D66A",
     },
-    logo: {
-        color: "#E65C4F",
-    },
+    link: { textDecoration: "none", color: "#F7D66A" },
 }));

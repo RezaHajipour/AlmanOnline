@@ -1,0 +1,20 @@
+.newsContainer {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.newsUl {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex: 1;
+}
+
+.newsLi {
+    padding: 1rem;
+}

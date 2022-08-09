@@ -24,7 +24,9 @@ const App = () => {
         <BrowserRouter>
             <Nav />
             <div className="AppContainer">
-                <h1 className="appTitle">Alman Online first page</h1>
+                <Route path="/" exact>
+                    <Home />
+                </Route>
                 <Route path="/addnews">
                     {user.id ? <AddNews user={user} /> : <Login />}
                 </Route>
@@ -33,9 +35,6 @@ const App = () => {
                 </Route>
                 <Route path="/news">
                     <News />
-                </Route>
-                <Route path="/" exact>
-                    <Home />
                 </Route>
             </div>
         </BrowserRouter>
