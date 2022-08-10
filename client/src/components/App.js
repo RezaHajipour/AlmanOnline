@@ -3,6 +3,8 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
+import CopyWrite from "./CopyRight";
+
 import Home from "./Home";
 import Login from "./Login";
 import News from "./News";
@@ -24,7 +26,6 @@ const App = () => {
     return (
         <BrowserRouter>
             <Nav />
-            <Footer />
             <div className="AppContainer">
                 <Route path="/" exact>
                     <Home />
@@ -38,6 +39,8 @@ const App = () => {
                 <Route path="/news">
                     <News />
                 </Route>
+                <Footer />
+                <CopyWrite />
             </div>
         </BrowserRouter>
     );

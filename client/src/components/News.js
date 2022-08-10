@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import NewsCard from "./NewsCard";
 import Grid from "@mui/material/Unstable_Grid2";
 import Link from "@mui/material/Link";
+import { Container } from "@mui/material";
 
 const News = () => {
     const [allnews, setAllNews] = useState([]);
@@ -15,31 +16,41 @@ const News = () => {
     }, []);
 
     return (
-        <Grid
-            container
-            rowSpacing={2}
-            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-            sx={{ width: "80%", mt: 2 }}
+        <Container
+            sx={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                maxWidth: "false",
+            }}
         >
-            {!allnews ? (
-                <p>loading...</p>
-            ) : (
-                allnews.map((news, index) => (
-                    <Grid item key={index}>
-                        <Link
-                            component="button"
-                            variant="body2"
-                            underline="none"
-                            onClick={() => {
-                                console.info("I'm a button.");
-                            }}
-                        >
-                            <NewsCard news={news} />
-                        </Link>
-                    </Grid>
-                ))
-            )}
-        </Grid>
+            <Grid
+                container
+                rowSpacing={2}
+                columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                sx={{ width: "80%", mt: 2 }}
+            >
+                {!allnews ? (
+                    <p>loading...</p>
+                ) : (
+                    allnews.map((news, index) => (
+                        <Grid item key={index}>
+                            <Link
+                                component="button"
+                                variant="body2"
+                                underline="none"
+                                onClick={() => {
+                                    console.info("I'm a button.");
+                                }}
+                            >
+                                <NewsCard news={news} />
+                            </Link>
+                        </Grid>
+                    ))
+                )}
+            </Grid>
+        </Container>
     );
 };
 

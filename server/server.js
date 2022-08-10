@@ -9,6 +9,7 @@ const {
     getUserById,
     getAllNews,
     createNews,
+    getLatestNews,
     // updateNewsByUserId,
 } = require("./db");
 const uploader = require("./uploader");
@@ -95,6 +96,17 @@ app.get("/api/news", async (req, res) => {
     }
 });
 
+app.get("/api/latestnews", async (req, res) => {
+    try {
+        const news = await getLatestNews(req.query);
+        res.json(news);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "problem with getLatestNews",
+        });
+    }
+});
 app.post("/api/news", async function (req, res) {
     console.log("req session user id", req.session.user_id);
     const addNews = await createNews({

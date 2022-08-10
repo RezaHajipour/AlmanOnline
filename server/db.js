@@ -60,7 +60,9 @@ function getUserById(id) {
 
 // **********************------NEWS------********************************
 function getAllNews() {
-    return db.query("SELECT * FROM news").then((result) => result.rows);
+    return db
+        .query("SELECT * FROM news  ORDER BY id DESC")
+        .then((result) => result.rows);
 }
 function createNews({
     user_id,
@@ -97,6 +99,12 @@ function updateNewsByUserId({
         )
         .then((result) => result.rows[0]);
 }
+
+function getLatestNews({ limit = 3 }) {
+    return db
+        .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
+        .then(({ rows }) => rows);
+}
 // **********************------END------********************************
 
 module.exports = {
@@ -106,4 +114,5 @@ module.exports = {
     getAllNews,
     createNews,
     updateNewsByUserId,
+    getLatestNews,
 };

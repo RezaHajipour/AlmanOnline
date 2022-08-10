@@ -1,37 +1,31 @@
-import AppBar from "@mui/material/AppBar";
-import Container from "@mui/material/Container";
-
-import Typography from "@mui/material/Typography";
+import { Typography, Grid } from "@mui/material";
 import { makeStyles } from "@mui/styles";
-
-const Footer = () => {
+export default function Footer() {
     const classes = useStyles();
 
     return (
-        <AppBar
-            position="fixed"
-            sx={{ top: "auto", bottom: 0, color: "#e1e1e1" }}
-        >
-            <Container maxWidth="xl" className={classes.footerContainer}>
-                <Typography
-                    variant="h5"
-                    gutterBottom
-                    component="div"
-                    sx={{ p: 2, pb: 0 }}
-                >
-                    footer
+        <div className={classes.root}>
+            <Grid container className={classes.root}>
+                <Typography gutterBottom variant="h6" component="h4">
+                    Alman Online
                 </Typography>
-            </Container>
-        </AppBar>
+            </Grid>
+        </div>
     );
-};
+}
 
-export default Footer;
+//----------------Material-ui Styles----------------------
 
 const useStyles = makeStyles(() => ({
-    footerContainer: {
-        height: "15vh",
-        background: " #e1e1e1",
-        color: "#151922",
+    root: {
+        flexGrow: 1,
+        justifyContent: "space-around",
+        alignItems: "flex-start",
+        textAlign: "center",
+        flexBasis: "0%",
+        backgroundColor: "#e1e1e1",
+        boxShadow: "0",
+        width: "100%",
+        height: "10vw",
     },
 }));
