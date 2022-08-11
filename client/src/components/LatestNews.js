@@ -1,11 +1,4 @@
-import {
-    Card,
-    CardMedia,
-    CardActionArea,
-    CardContent,
-    Typography,
-    Box,
-} from "@mui/material";
+import { Card } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
 const LatestNews = ({ news }) => {
@@ -13,30 +6,16 @@ const LatestNews = ({ news }) => {
     // console.log("latestNews", latestNews);
 
     return (
-        <Box my={2}>
-            <Card className={classes.card}>
-                <CardActionArea>
-                    <CardMedia
-                        media="picture"
-                        alt="Contemplative Reptile"
-                        src={news.news_picture_url}
-                        title="Contemplative Reptile"
-                    />
-                    <CardContent className={classes.cardContent}>
-                        <Typography gutterBottom variant="h5" component="h2">
-                            {news.title}
-                        </Typography>
-                        <Typography
-                            variant="body2"
-                            className={classes.fiCardContentTextSecondary}
-                            component="p"
-                        >
-                            {news.description}
-                        </Typography>
-                    </CardContent>
-                </CardActionArea>
-            </Card>
-        </Box>
+        <Card className={classes.card}>
+            <img
+                component="img"
+                alt="green iguana"
+                src={news.news_picture_url}
+            />
+            <h2 className={classes.text} variant="h5" component="h2">
+                {news.title}
+            </h2>
+        </Card>
     );
 };
 
@@ -45,22 +24,20 @@ export default LatestNews;
 const useStyles = makeStyles(() => ({
     card: {
         position: "relative",
-        maxWidth: 345,
+        display: "inline-block" /* Make the width of box same as image */,
+        width: "550px",
+        height: "300px",
     },
-    CardContent: {
-        position: "relative",
-        backgroundColor: "transparent",
-        color: "#ffffff",
+
+    text: {
+        position: "absolute",
+        zIndex: "999",
+        margin: "0 auto",
+        textAlign: "center",
+        left: "0",
+        right: "0",
+        top: "70%" /* Adjust this value to move the positioned div up and down */,
+        width: "80%" /* Set the width of the positioned div */,
+        color: "#f8f8f8",
     },
-    fiCardContentTextSecondary: { color: "rgba(255,255,255,0.78)" },
 }));
-
-//    <Card variant="string" sx={{ width: "450px", height: "250px" }}>
-//             <CardContent sx={{ mt: -2 }}>
-//                 <img alt="green iguana" src={news.news_picture_url} />
-
-//                 <Typography gutterBottom variant="h6" component="h2">
-//                     {news.title}
-//                 </Typography>
-//             </CardContent>
-//         </Card>

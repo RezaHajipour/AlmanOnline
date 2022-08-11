@@ -100,7 +100,7 @@ function updateNewsByUserId({
         .then((result) => result.rows[0]);
 }
 
-function getLatestNews({ limit = 3 }) {
+function getLatestNews({ limit = 1 }) {
     return db
         .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
         .then(({ rows }) => rows);

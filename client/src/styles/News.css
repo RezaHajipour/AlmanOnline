@@ -1,20 +1,14 @@
-.newsContainer {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-}
+.newsTitle {
+    display: block;
+    font-size: 1.5em;
+    border-bottom: 2px solid #cbd1d6;
+    padding-bottom: 5px;
+    margin: 12px 0;
+    margin-bottom: 10px;
+    /* padding-top: 20px; */
 
-.newsUl {
-    list-style-type: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    flex: 1;
-}
-
-.newsLi {
-    padding: 1rem;
+    color: #a1aab4;
+    line-height: 1.2;
+    text-align: right;
+    width: 93%;
 }

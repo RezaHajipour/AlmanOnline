@@ -21,6 +21,7 @@ const pages = [
     { title: "اقامت", link: "/login" },
     { title: "اصلاعات عمومی آلمان", link: "/addnews" },
     { title: "اخبار", link: "/news" },
+    { title: "صفحه اول", link: "/" },
 ];
 
 const Nav = () => {
