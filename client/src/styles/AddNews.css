@@ -15,6 +15,8 @@
     justify-content: space-between;
 }
 .AddNews-input {
+    text-align: right;
+    direction: rtl;
     width: 300px;
     height: 30px;
     padding-left: 15px;
@@ -35,6 +37,8 @@
 }
 
 .AddNews-textarea {
+    text-align: right;
+    direction: rtl;
     width: 300px;
     height: 100px;
     padding-left: 15px;

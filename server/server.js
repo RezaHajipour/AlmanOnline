@@ -9,7 +9,8 @@ const {
     getUserById,
     getAllNews,
     createNews,
-    getLatestNews,
+    getLastNews,
+    getHeadlines,
     // updateNewsByUserId,
 } = require("./db");
 const uploader = require("./uploader");
@@ -96,14 +97,26 @@ app.get("/api/news", async (req, res) => {
     }
 });
 
-app.get("/api/latestnews", async (req, res) => {
+app.get("/api/lastnews", async (req, res) => {
     try {
-        const news = await getLatestNews(req.query);
-        res.json(news);
+        const lastnews = await getLastNews(req.query);
+        res.json(lastnews);
     } catch (error) {
         console.log(error);
         res.status(500).json({
-            message: "problem with getLatestNews",
+            message: "problem with getLastNews",
+        });
+    }
+});
+
+app.get("/api/headlines", async (req, res) => {
+    try {
+        const headlines = await getHeadlines(req.query);
+        res.json(headlines);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            message: "problem with getHeadlines",
         });
     }
 });

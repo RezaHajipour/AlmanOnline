@@ -8,6 +8,11 @@
     align-items: center;
     margin-top: 1.5em;
 }
+.date {
+    width: 90vw;
+    text-align: right;
+    color: #a1aab4;
+}
 .headContainer {
     width: 90%;
     display: flex;
@@ -37,9 +42,21 @@
 .headMiddle {
     width: 45%;
     padding-right: 20px;
+    text-align: right;
+    line-height: 2;
 }
 
 .headLeft {
     width: 45%;
     padding-right: 20px;
+}
+
+.headline {
+    display: block;
+    font-size: 1.2em;
+    border-bottom: 2px solid #cbd1d6;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-align: right;
 }
