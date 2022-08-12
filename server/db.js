@@ -111,6 +111,13 @@ function getHeadlines({ limit = 5 }) {
         .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
         .then(({ rows }) => rows);
 }
+
+// **********************------VIDEOS------********************************
+function getAllVideos() {
+    return db
+        .query("SELECT * FROM videos  ORDER BY id DESC")
+        .then((result) => result.rows);
+}
 // **********************------END------********************************
 
 module.exports = {
@@ -122,4 +129,5 @@ module.exports = {
     updateNewsByUserId,
     getLastNews,
     getHeadlines,
+    getAllVideos,
 };

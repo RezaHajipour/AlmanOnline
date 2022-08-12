@@ -3,6 +3,7 @@ import Grid from "@mui/material/Unstable_Grid2";
 import Link from "@mui/material/Link";
 import LastNews from "./LastNews";
 import "../styles/Home.css";
+import Videos from "./Videos";
 
 const Home = () => {
     const [lastNews, setLastNews] = useState([]);
@@ -74,6 +75,10 @@ const Home = () => {
                 <div className="headLeft">
                     <h2 className="headTitle"> گزیده ها</h2>
                 </div>
+            </section>
+
+            <section className="videos">
+                <Videos />
             </section>
         </div>
     );

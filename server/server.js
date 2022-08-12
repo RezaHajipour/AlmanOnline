@@ -11,7 +11,7 @@ const {
     createNews,
     getLastNews,
     getHeadlines,
-    // updateNewsByUserId,
+    getAllVideos,
 } = require("./db");
 const uploader = require("./uploader");
 
@@ -141,17 +141,19 @@ app.post("/upload", uploader.single("singleNewsImage"), function (req, res) {
         });
     }
 });
-// app.put("/api/users/me/addnews", async function (req, res) {
-//     const news = await updateNewsByUserId({
-//         user_id: req.session.user_id,
-//         ...req.body,
-//     });
-//     if (!news) {
-//         res.json(null);
-//         return;
-//     }
-//     res.json(news);
-// });
+// **********************------VIDEOS------********************************
+app.get("/api/videos", async (req, res) => {
+    try {
+        const allvideos = await getAllVideos(req.query);
+        res.json(allvideos);
+    } catch (error) {
+        console.log("error on getting all videos", error);
+        res.status(500).json({
+            message: "error on getAllVideos",
+        });
+    }
+});
+
 //--------------------------------------------
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "..", "client", "index.html"));
