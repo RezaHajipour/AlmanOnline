@@ -1,7 +1,6 @@
 import { Typography, Box } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
-import CopyrightIcon from "@mui/icons-material/Copyright";
 
 export default function CopyRight() {
     const classes = useStyles();

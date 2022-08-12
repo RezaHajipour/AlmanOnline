@@ -21,7 +21,7 @@ const Videos = () => {
                             controls
                             url={video.video_url}
                             width="250px"
-                            height="250px"
+                            height="200px"
                         />
                         <p>{video.title}</p>
                     </div>

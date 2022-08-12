@@ -45,7 +45,7 @@ const Nav = () => {
                             display: {
                                 xs: "none",
                                 md: "flex",
-                                color: "#f4c430",
+                                color: "#dc503c",
                             },
                             mr: 1,
                         }}
@@ -62,6 +62,7 @@ const Nav = () => {
                             display: {
                                 xs: "none",
                                 md: "flex",
+                                color: "#dc503c",
                             },
                             fontFamily: "Noto Sans Arabic",
                             fontWeight: 700,

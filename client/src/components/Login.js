@@ -86,7 +86,7 @@ function Login() {
                             fullWidth
                             variant="contained"
                             sx={{
-                                backgroundColor: "#f4c430",
+                                backgroundColor: "#dc503c",
                                 mb: 4,
                             }}
                         >
@@ -114,7 +114,7 @@ const useStyles = makeStyles(() => ({
         color: "#333",
         borderRadius: 16,
         height: "40vh",
-        border: "2px solid #f4c430",
+        border: "2px solid #dc503c",
         "& a:hover": {
             textDecoration: "none",
         },
@@ -148,7 +148,7 @@ const useStyles = makeStyles(() => ({
     //     },
     // },
 }));
-
+// #8cf1e9
 ///------ old version which works properly-------
 //******************************************** */
 

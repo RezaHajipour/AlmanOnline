@@ -118,6 +118,25 @@ function getAllVideos() {
         .query("SELECT * FROM videos  ORDER BY id DESC")
         .then((result) => result.rows);
 }
+
+function createVideo({
+    user_id,
+    title,
+    description,
+    category,
+    location,
+    video_url,
+}) {
+    return db
+        .query(
+            `INSERT INTO videos ( user_id, title, description, category, location,  video_url)
+        VALUES($1, $2, $3, $4, $5, $6)
+        RETURNING *`,
+            [user_id, title, description, category, location, video_url]
+        )
+        .then((result) => result.rows[0]);
+}
+
 // **********************------END------********************************
 
 module.exports = {
@@ -130,4 +149,5 @@ module.exports = {
     getLastNews,
     getHeadlines,
     getAllVideos,
+    createVideo,
 };

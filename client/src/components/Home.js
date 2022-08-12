@@ -4,11 +4,11 @@ import Link from "@mui/material/Link";
 import LastNews from "./LastNews";
 import "../styles/Home.css";
 import Videos from "./Videos";
-
+const JDate = require("jalali-date");
 const Home = () => {
     const [lastNews, setLastNews] = useState([]);
     const [headlines, setHeadlines] = useState([]);
-
+    const jdate = new JDate();
     useEffect(() => {
         fetch("/api/lastnews").then((res) =>
             res.json().then((data) => setLastNews(data))
@@ -21,7 +21,7 @@ const Home = () => {
     });
     return (
         <div className="container">
-            <p className="date">امروز&nbsp;</p>
+            <p className="date">{jdate.format("dddd DD MMMM YYYY")}</p>
             <section className="headContainer">
                 <div className="headRight">
                     <h2 className="headTitle">آخرین خبر</h2>
@@ -78,7 +78,11 @@ const Home = () => {
             </section>
 
             <section className="videos">
+                <h2 className="headTitle"> آخرین ویدیوها</h2>
                 <Videos />
+            </section>
+            <section className="videos">
+                <h2 className="headTitle">اصلاعات عمومی آلمان</h2>
             </section>
         </div>
     );

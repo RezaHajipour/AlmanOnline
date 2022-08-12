@@ -12,6 +12,7 @@ const {
     getLastNews,
     getHeadlines,
     getAllVideos,
+    createVideo,
 } = require("./db");
 const uploader = require("./uploader");
 
@@ -154,6 +155,14 @@ app.get("/api/videos", async (req, res) => {
     }
 });
 
+app.post("/api/videos", async function (req, res) {
+    console.log("req session user id", req.session.user_id);
+    const addVideo = await createVideo({
+        user_id: req.session.user_id,
+        ...req.body,
+    });
+    res.json({ addVideo });
+});
 //--------------------------------------------
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "..", "client", "index.html"));

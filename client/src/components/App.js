@@ -9,6 +9,7 @@ import Home from "./Home";
 import Login from "./Login";
 import News from "./News";
 import AddNews from "./AddNews";
+import AddVideos from "./AddVideos";
 
 const App = () => {
     const [user, setUser] = useState({});
@@ -29,6 +30,9 @@ const App = () => {
             <div className="AppContainer">
                 <Route path="/" exact>
                     <Home />
+                </Route>
+                <Route path="/addvideos">
+                    {user.id ? <AddVideos user={user} /> : <Login />}
                 </Route>
                 <Route path="/addnews">
                     {user.id ? <AddNews user={user} /> : <Login />}
