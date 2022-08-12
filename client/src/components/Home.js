@@ -28,7 +28,7 @@ const Home = () => {
                         {!lastNews ? (
                             <p>loading...</p>
                         ) : (
-                            lastNews.map((news, index) => (
+                            lastNews.map((lastnews, index) => (
                                 <Grid item key={index}>
                                     <Link
                                         component="button"
@@ -38,7 +38,7 @@ const Home = () => {
                                             console.info("I'm a button.");
                                         }}
                                     >
-                                        <LastNews news={news} />
+                                        <LastNews lastnews={lastnews} />
                                     </Link>
                                 </Grid>
                             ))

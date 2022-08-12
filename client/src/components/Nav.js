@@ -45,11 +45,12 @@ const Nav = () => {
                             display: {
                                 xs: "none",
                                 md: "flex",
-                                color: "red",
+                                color: "#f4c430",
                             },
                             mr: 1,
                         }}
                     />
+
                     <Typography
                         className={classes.logo}
                         variant="h6"

@@ -1,15 +1,19 @@
 import { Card } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 
-const LastNews = ({ news }) => {
+const LastNews = ({ lastnews }) => {
     const classes = useStyles();
     // console.log("latestNews", latestNews);
 
     return (
         <Card className={classes.card}>
-            <img component="img" alt="news Image" src={news.news_picture_url} />
+            <img
+                component="img"
+                alt="news Image"
+                src={lastnews.news_picture_url}
+            />
             <h2 className={classes.text} variant="h5" component="h2">
-                {news.title}
+                {lastnews.title}
             </h2>
         </Card>
     );
