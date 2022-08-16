@@ -1,9 +1,8 @@
 import "../styles/AddVideos.css";
 import { useState } from "react";
 
-function AddVideos(user) {
-    console.log("user", user);
-    const [formData, setFormData] = useState({});
+function AddVideos() {
+    const [formData, setFormData] = useState([]);
 
     function onSubmit(event) {
         event.preventDefault();
@@ -14,12 +13,12 @@ function AddVideos(user) {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log("data inside addnews form is", data);
+                // console.log("data inside addnews form is", data);
                 if (data.error) {
                     setFormData({ error: data.error });
                     return;
                 }
-                window.location.href = "/addvideos";
+                window.location.href = "/";
             });
     }
 
@@ -32,16 +31,10 @@ function AddVideos(user) {
 
     return (
         <div>
-            <form
-                action="/upload"
-                method="POST"
-                encType="multipart/form-data"
-                onSubmit={onSubmit}
-                className="AddNews-form"
-            >
+            <form method="POST" onSubmit={onSubmit} className="AddNews-form">
                 <h1> Please fill the form for adding new video</h1>
-
                 <p>
+                    {" "}
                     video Title
                     <input
                         type="text"
@@ -93,7 +86,12 @@ function AddVideos(user) {
                 <br />
                 <p>
                     video Link
-                    <input type="url" name="singleNewsImage" required />
+                    <input
+                        type="url"
+                        name="video_url"
+                        required
+                        onInput={onInput}
+                    />
                 </p>
                 <br />
                 <button className="AddNews-btn">Add video</button>

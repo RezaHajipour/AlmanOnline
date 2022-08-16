@@ -4,10 +4,11 @@ import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import CopyWrite from "./CopyRight";
-
 import Home from "./Home";
 import Login from "./Login";
 import News from "./News";
+import Videos from "./Videos";
+
 import AddNews from "./AddNews";
 import AddVideos from "./AddVideos";
 
@@ -39,6 +40,9 @@ const App = () => {
                 </Route>
                 <Route path="/login">
                     <Login />
+                </Route>
+                <Route path="/videos">
+                    <Videos />
                 </Route>
                 <Route path="/news">
                     <News />

@@ -3,7 +3,7 @@
 import { Card, CardMedia, CardContent, Typography } from "@mui/material";
 
 const NewsCard = ({ news }) => {
-    console.log("news card image", news.news_picture_url);
+    // console.log("news card image", news.news_picture_url);
     return (
         <Card variant="string" sx={{ width: 250, height: "250px" }}>
             <CardMedia

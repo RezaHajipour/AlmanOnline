@@ -13,6 +13,7 @@ const {
     getHeadlines,
     getAllVideos,
     createVideo,
+    getLastVideos,
 } = require("./db");
 const uploader = require("./uploader");
 
@@ -29,7 +30,10 @@ app.use(
         sameSite: true,
     })
 );
-// **********************------REGISTER------*****************************
+
+// ************REGISTER********
+//*****************************
+
 app.post("/api/users", function (req, res) {
     // console.log(req.body);
     createUser(req.body)
@@ -48,25 +52,31 @@ app.post("/api/users", function (req, res) {
             res.json({ error: "generic error" });
         });
 });
-// **********************------LOGIN------********************************
+
+// ************LOGIN***********
+//*****************************
+
 app.post("/api/login", function (req, res) {
-    // console.log("loging request body", req.body);
+    // console.log("post request login", request.body);
+
     const { email, password } = req.body;
     if (!email || !password) {
-        res.statusCode = 401;
-        res.render("login", {
-            title: "Login",
-            error: "please write your email and password",
+        res.status(400).json({
+            error: "please write username and password!",
         });
         return;
     }
     login(req.body)
         .then((user) => {
+            if (!user) {
+                res.status(401).json({ error: "Wrong credentials" });
+                return;
+            }
             req.session.user_id = user.id;
             res.json(user);
         })
         .catch((error) => {
-            console.log("login post:", error);
+            console.log("This error ocurred on login user", error);
             if (error.constraint == "users_email_key") {
                 res.statusCode = 400;
                 res.json({ error: "wrong credentials" });
@@ -76,7 +86,10 @@ app.post("/api/login", function (req, res) {
             res.json({ error: "wrong credentials" });
         });
 });
-// **********************------USERS------********************************
+
+// ************USERS***********
+//*****************************
+
 app.get("/api/users/me", async function (req, res) {
     const user = await getUserById(req.session.user_id);
     if (!user) {
@@ -85,13 +98,16 @@ app.get("/api/users/me", async function (req, res) {
     }
     res.json(user);
 });
-// **********************------NEWS------********************************
+
+// ************NEWS************
+//*****************************
+
 app.get("/api/news", async (req, res) => {
     try {
         const news = await getAllNews(req.query);
         res.json(news);
     } catch (error) {
-        console.log(error);
+        console.log("news", error);
         res.status(500).json({
             message: "problem with getAllNews",
         });
@@ -103,7 +119,7 @@ app.get("/api/lastnews", async (req, res) => {
         const lastnews = await getLastNews(req.query);
         res.json(lastnews);
     } catch (error) {
-        console.log(error);
+        console.log("lastnews", error);
         res.status(500).json({
             message: "problem with getLastNews",
         });
@@ -121,28 +137,34 @@ app.get("/api/headlines", async (req, res) => {
         });
     }
 });
-app.post("/api/news", async function (req, res) {
-    console.log("req session user id", req.session.user_id);
+app.post("/api/addnews", async function (req, res) {
+    // console.log("req session user id", req.session.user_id);
     const addNews = await createNews({
         user_id: req.session.user_id,
         ...req.body,
     });
-    res.json({ addNews });
+    res.json(addNews);
 });
 
-app.post("/upload", uploader.single("singleNewsImage"), function (req, res) {
-    // If nothing went wrong the file is already in the uploads directory
-    if (req.file) {
-        res.json({
-            success: true,
-        });
-    } else {
-        res.json({
-            success: false,
-        });
+app.post(
+    "/upload",
+    uploader.single("singleNewsImage"),
+    async function (req, res) {
+        // If nothing went wrong the file is already in the uploads directory
+        if (req.file) {
+            res.json({
+                success: true,
+            });
+        } else {
+            res.json({
+                success: false,
+            });
+        }
     }
-});
-// **********************------VIDEOS------********************************
+);
+// ************VIDEOS**********
+//*****************************
+
 app.get("/api/videos", async (req, res) => {
     try {
         const allvideos = await getAllVideos(req.query);
@@ -155,14 +177,26 @@ app.get("/api/videos", async (req, res) => {
     }
 });
 
+app.get("/api/lastvideos", async (req, res) => {
+    try {
+        const lastvideos = await getLastVideos(req.query);
+        res.json(lastvideos);
+    } catch (error) {
+        console.log("error on getLastVideos", error);
+        res.status(500).json({
+            message: "error on getLastVideos",
+        });
+    }
+});
+
 app.post("/api/videos", async function (req, res) {
-    console.log("req session user id", req.session.user_id);
     const addVideo = await createVideo({
         user_id: req.session.user_id,
         ...req.body,
     });
-    res.json({ addVideo });
+    res.json(addVideo);
 });
+
 //--------------------------------------------
 app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "..", "client", "index.html"));

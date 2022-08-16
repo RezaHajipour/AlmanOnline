@@ -11,28 +11,36 @@ import {
     Checkbox,
 } from "@mui/material";
 import { makeStyles } from "@mui/styles";
+// import Alert from "@mui/material/Alert";
 
 function Login() {
     const classes = useStyles();
 
     const [formData, setFormData] = useState({});
+    // const [loading, setLoading] = useState(true);
+    const [isError, setIsError] = useState(null);
 
-    function onSubmit(event) {
-        event.preventDefault();
-        fetch("/api/login", {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: { "Content-Type": "application/json" },
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.error) {
-                    setFormData({ error: data.error });
-                    return;
-                }
-                window.location.href = "/addnews";
+    const onSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await fetch("/api/login", {
+                method: "POST",
+                body: JSON.stringify(formData),
+                headers: {
+                    "Content-Type": "application/json",
+                },
             });
-    }
+            const result = await response.json();
+            if (result.error) {
+                setIsError(result.error);
+                return;
+            }
+            history.push("/login");
+            window.location.href = "/addnews";
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
     function onInput(event) {
         setFormData({
@@ -53,7 +61,7 @@ function Login() {
                             className={classes.input}
                             variant="filled"
                             margin="normal"
-                            required
+                            // required
                             fullWidth
                             id="email"
                             label="Email"
@@ -71,7 +79,7 @@ function Login() {
                             name="password"
                             type="password"
                             autoComplete="current-password"
-                            required
+                            // required
                             fullWidth
                             onInput={onInput}
                         />
@@ -92,6 +100,7 @@ function Login() {
                         >
                             Login
                         </Button>
+                        {isError && <p>{isError}</p>}
                     </form>
                 </div>
             </Container>
@@ -140,87 +149,4 @@ const useStyles = makeStyles(() => ({
             color: "red",
         },
     },
-
-    // checkbox: {
-    //     color: "#fff",
-    //     "& span": {
-    //         color: "#fff",
-    //     },
-    // },
 }));
-// #8cf1e9
-///------ old version which works properly-------
-//******************************************** */
-
-// import { useState } from "react";
-// import { Link } from "react-router-dom";
-// // import useTitle from "../hooks/useTitle.js";
-// import "../styles/Login.css";
-
-// function Login() {
-//     const [formData, setFormData] = useState({});
-//     // useTitle("Login");
-
-//     function onSubmit(event) {
-//         event.preventDefault();
-//         fetch("/api/login", {
-//             method: "POST",
-//             body: JSON.stringify(formData),
-//             headers: { "Content-Type": "application/json" },
-//         })
-//             .then((response) => response.json())
-//             .then((data) => {
-//                 if (data.error) {
-//                     setFormData({ error: data.error });
-//                     return;
-//                 }
-//                 window.location.href = "/addnews";
-//             });
-//     }
-
-//     function onInput(event) {
-//         setFormData({
-//             ...formData,
-//             [event.target.name]: event.target.value,
-//         });
-//     }
-//     return (
-//         <section className="mainContainer">
-//             <div className="loginContainer">
-//                 <form onSubmit={onSubmit} className="loginForm">
-//                     <h2 className="loginTitle">Login</h2>
-
-//                     <ul className="loginUl">
-//                         <li>
-//                             <input
-//                                 className="loginInput"
-//                                 type="email"
-//                                 name="email"
-//                                 required
-//                                 placeholder="Email"
-//                                 onInput={onInput}
-//                             />
-//                         </li>
-//                         <li>
-//                             <input
-//                                 className="loginInput"
-//                                 type="password"
-//                                 name="password"
-//                                 required
-//                                 placeholder="Password"
-//                                 onInput={onInput}
-//                             />
-//                         </li>
-//                         <li>
-//                             <button type="submit" className="loginBtn">
-//                                 LOGIN
-//                             </button>
-//                         </li>
-//                     </ul>
-//                 </form>
-//             </div>
-//         </section>
-//     );
-// }
-
-// export default Login;

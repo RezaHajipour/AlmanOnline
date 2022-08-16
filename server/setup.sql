@@ -29,7 +29,7 @@ CREATE TABLE videos (
     description text,
     category      VARCHAR(255) NOT NULL,
     location      VARCHAR(255) NOT NULL,
-    video_url VARCHAR,
+    video_url text not null,
     created_at          TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

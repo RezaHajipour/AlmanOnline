@@ -10,9 +10,18 @@ const News = () => {
     console.log("allnews", allnews);
 
     useEffect(() => {
-        fetch("/api/news").then((res) =>
-            res.json().then((data) => setAllNews(data))
-        );
+        fetch("/api/news", {})
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                if (data.error_message) {
+                    console.log(data.error_message);
+                    history.replaceState("/");
+                    return;
+                }
+                setAllNews(data);
+            });
     }, []);
 
     return (
@@ -36,8 +45,8 @@ const News = () => {
                 {!allnews ? (
                     <p>loading...</p>
                 ) : (
-                    allnews.map((news, index) => (
-                        <Grid item key={index} sx={{ mt: 2 }}>
+                    allnews.map((news) => (
+                        <Grid item key={news.id} sx={{ mt: 2 }}>
                             <Link
                                 component="button"
                                 variant="body2"

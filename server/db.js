@@ -119,6 +119,12 @@ function getAllVideos() {
         .then((result) => result.rows);
 }
 
+function getLastVideos({ limit = 5 }) {
+    return db
+        .query(`SELECT * FROM videos ORDER BY id DESC LIMIT $1`, [limit])
+        .then(({ rows }) => rows);
+}
+
 function createVideo({
     user_id,
     title,
@@ -150,4 +156,5 @@ module.exports = {
     getHeadlines,
     getAllVideos,
     createVideo,
+    getLastVideos,
 };

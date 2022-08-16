@@ -2,11 +2,11 @@ import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import "../styles/Home.css";
 
-const Videos = () => {
-    const [allVideos, setAllvideos] = useState([]);
+const LastVideos = () => {
+    const [lastVideos, setLastvideos] = useState([]);
 
     useEffect(() => {
-        fetch("/api/videos", {})
+        fetch("/api/lastvideos", {})
             .then((res) => {
                 return res.json();
             })
@@ -16,23 +16,23 @@ const Videos = () => {
                     history.replaceState("/");
                     return;
                 }
-                setAllvideos(data);
+                setLastvideos(data);
             });
     }, []);
     return (
         <div className="videoContainer">
-            {!allVideos ? (
+            {!lastVideos ? (
                 <p>loading...</p>
             ) : (
-                allVideos.map((video) => (
-                    <div key={video.id}>
+                lastVideos.map((lastvideo) => (
+                    <div key={lastvideo.id}>
                         <ReactPlayer
                             controls
-                            url={video.video_url}
+                            url={lastvideo.video_url}
                             width="250px"
                             height="200px"
                         />
-                        <p>{video.title}</p>
+                        <p>{lastvideo.title}</p>
                     </div>
                 ))
             )}
@@ -40,4 +40,4 @@ const Videos = () => {
     );
 };
 
-export default Videos;
+export default LastVideos;

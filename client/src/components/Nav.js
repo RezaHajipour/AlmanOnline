@@ -19,6 +19,7 @@ const pages = [
     { title: "ایونتها", link: "/" },
     { title: "تحصیل", link: "/" },
     { title: "اقامت", link: "/login" },
+    { title: "ویدیو", link: "/videos" },
     { title: "اصلاعات عمومی آلمان", link: "/addnews" },
     { title: "اخبار", link: "/news" },
     { title: "صفحه اول", link: "/" },
@@ -115,11 +116,6 @@ const Nav = () => {
                                 <MenuItem
                                     key={page}
                                     onClick={handleCloseNavMenu}
-                                    // sx={{
-                                    //     display: {
-                                    //         xs: "block",
-                                    //     },
-                                    // }}
                                 >
                                     <Typography
                                         textAlign="center"
