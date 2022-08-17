@@ -64,6 +64,23 @@ function getAllNews() {
         .query("SELECT * FROM news  ORDER BY id DESC")
         .then((result) => result.rows);
 }
+
+function getNewsById(id) {
+    return db
+        .query(`SELECT * FROM news WHERE id= $1`, [id])
+        .then((result) => result.rows[0]);
+}
+function getLastNews({ limit = 1 }) {
+    return db
+        .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
+        .then(({ rows }) => rows);
+}
+
+function getHeadlines({ limit = 5 }) {
+    return db
+        .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
+        .then(({ rows }) => rows);
+}
 function createNews({
     user_id,
     title,
@@ -98,18 +115,6 @@ function updateNewsByUserId({
             [title, description, category, location, news_picture_url, user_id]
         )
         .then((result) => result.rows[0]);
-}
-
-function getLastNews({ limit = 1 }) {
-    return db
-        .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
-        .then(({ rows }) => rows);
-}
-
-function getHeadlines({ limit = 5 }) {
-    return db
-        .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
-        .then(({ rows }) => rows);
 }
 
 // **********************------VIDEOS------********************************
@@ -150,6 +155,7 @@ module.exports = {
     login,
     getUserById,
     getAllNews,
+    getNewsById,
     createNews,
     updateNewsByUserId,
     getLastNews,

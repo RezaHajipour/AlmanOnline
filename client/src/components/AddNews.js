@@ -1,7 +1,7 @@
 import "../styles/AddNews.css";
 import { useState } from "react";
 
-import { Button, TextField, Typography, Container, Box } from "@mui/material";
+import { Button, TextField, Container } from "@mui/material";
 
 import { makeStyles } from "@mui/styles";
 
@@ -18,7 +18,6 @@ function AddNews() {
         })
             .then((response) => response.json())
             .then((data) => {
-                // console.log("data inside addnews form is", data);
                 if (data.error) {
                     setFormData({ error: data.error });
                     return;
@@ -40,6 +39,10 @@ function AddNews() {
             sx={{ display: "flex" }}
             className={classes.container}
         >
+            <form action="/upload" method="POST" encType="multipart/form-data">
+                <input type="file" accept="image/*" name="singleImage" />
+                <button type="submit">upload image</button>
+            </form>
             <form
                 action="/upload"
                 method="POST"
@@ -89,7 +92,12 @@ function AddNews() {
                     component="label"
                 >
                     Upload
-                    <input hidden accept="image/*" multiple type="file" />
+                    <input
+                        hidden
+                        type="file"
+                        accept="image/*"
+                        name="singleImage"
+                    />
                 </Button>
                 <Button
                     sx={{
@@ -101,7 +109,6 @@ function AddNews() {
                     variant="contained"
                     fullWidth
                     type="submit"
-                    onSubmit={onSubmit}
                 >
                     Add News
                 </Button>
@@ -114,7 +121,7 @@ export default AddNews;
 
 const useStyles = makeStyles(() => ({
     container: {
-        height: "60vh",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -123,7 +130,7 @@ const useStyles = makeStyles(() => ({
 
     form: {
         width: "80vw",
-        height: "80vh",
+        height: "100vh",
 
         display: "flex",
         flexDirection: "column",
@@ -298,7 +305,7 @@ const useStyles = makeStyles(() => ({
 //                     <input
 //                         type="file"
 //                         accept="image/*"
-//                         name="singleNewsImage"
+//                         name="singleImage"
 //                     />
 //                     <button type="submit" className="AddNews-btn"></button>
 //                 </form>

@@ -8,6 +8,7 @@ const {
     login,
     getUserById,
     getAllNews,
+    getNewsById,
     createNews,
     getLastNews,
     getHeadlines,
@@ -114,6 +115,16 @@ app.get("/api/news", async (req, res) => {
     }
 });
 
+app.get("/news/:id", (req, res) => {
+    getNewsById(req.params.image_id)
+        .then((image) => {
+            res.json(image);
+        })
+        .catch((error) => {
+            res.status(500).json({ message: "error fetching news", error });
+        });
+});
+
 app.get("/api/lastnews", async (req, res) => {
     try {
         const lastnews = await getLastNews(req.query);
@@ -146,22 +157,23 @@ app.post("/api/addnews", async function (req, res) {
     res.json(addNews);
 });
 
-app.post(
-    "/upload",
-    uploader.single("singleNewsImage"),
-    async function (req, res) {
-        // If nothing went wrong the file is already in the uploads directory
-        if (req.file) {
-            res.json({
-                success: true,
-            });
-        } else {
-            res.json({
-                success: false,
-            });
-        }
+app.post("/upload", uploader.single("singleImage"), async function (req, res) {
+    console.log("req.file", req.file);
+    if (req.file) {
+        res.json({
+            success: true,
+        });
+    } else {
+        res.json({
+            success: false,
+        });
     }
-);
+});
+
+app.get("upload", (req, res) => {
+    console.log("getting image");
+    res.send();
+});
 // ************VIDEOS**********
 //*****************************
 

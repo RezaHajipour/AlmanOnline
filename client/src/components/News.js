@@ -7,6 +7,8 @@ import { Container } from "@mui/material";
 
 const News = () => {
     const [allnews, setAllNews] = useState([]);
+    const [oneNews, setOneNews] = useState([]);
+    console.log("oneNews", oneNews);
     console.log("allnews", allnews);
 
     useEffect(() => {
@@ -24,6 +26,20 @@ const News = () => {
             });
     }, []);
 
+    useEffect(() => {
+        fetch("/news/:id", {})
+            .then((res) => {
+                return res.json();
+            })
+            .then((data) => {
+                if (data.error_message) {
+                    console.log(data.error_message);
+                    history.replaceState("/");
+                    return;
+                }
+                setOneNews(data);
+            });
+    }, []);
     return (
         <Container
             sx={{
@@ -53,6 +69,9 @@ const News = () => {
                                 underline="none"
                                 onClick={() => {
                                     console.info("I'm a button.");
+                                    {
+                                        oneNews.id;
+                                    }
                                 }}
                             >
                                 <NewsCard news={news} />

@@ -40,7 +40,7 @@ INSERT INTO users (first_name,last_name, email, password_hash, profile_picture_u
 
 INSERT INTO news (user_id,title, description, category, location, news_picture_url) VALUES ('1','headline', 'this is description', 'politics', 'berlin', 'https://uktie.eu/wp-content/uploads/2017/01/358588-news-images.jpg');
 INSERT INTO news (user_id, title, description, category, location, news_picture_url) VALUES ('1','second news headline', 'this is description for second news', 'culture', 'hamburg', 'https://uktie.eu/wp-content/uploads/2017/01/358588-news-images.jpg');
-INSERT INTO news (user_id, title, description, category, location, news_picture_url) VALUES ('1','3rd news title this title is a little bit longer than usual', 'description for 3rd news this description is a little bit longer than usual', 'social', 'hannover', 'https://media0.faz.net/ppmedia/aktuell/1668655690/1.7921370/format_top1_breit/im-oktober-2019-verfolgten.jpg');
+INSERT INTO news (user_id, title, description, category, location, news_picture_url) VALUES ('1','Monkeypox: After the first human-to-dog case, are pets at risk of getting the virus from owners?', 'Monkeypox: After the first human-to-dog case, are pets at risk of getting the virus from owners?', 'social', 'hannover', 'https://static.euronews.com/articles/stories/06/94/71/20/1100x619_cmsv2_d394f6ac-f7fd-599d-9d20-659b486655cd-6947120.jpg');
 
 
 INSERT INTO videos (user_id,title, description, category, location, video_url) VALUES ('1','video title1', 'video  description 1', 'politics', 'berlin', 'https://www.youtube.com/watch?v=vbQ-WDVqOcA');

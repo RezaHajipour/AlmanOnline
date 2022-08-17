@@ -8,7 +8,6 @@ import Home from "./Home";
 import Login from "./Login";
 import News from "./News";
 import Videos from "./Videos";
-
 import AddNews from "./AddNews";
 import AddVideos from "./AddVideos";
 
@@ -27,8 +26,8 @@ const App = () => {
     }, []);
     return (
         <BrowserRouter>
-            <Nav />
             <div className="AppContainer">
+                <Nav />
                 <Route path="/" exact>
                     <Home />
                 </Route>
