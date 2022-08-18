@@ -115,14 +115,16 @@ app.get("/api/news", async (req, res) => {
     }
 });
 
-app.get("/api/news/:id", (req, res) => {
-    getNewsById(req.params.image_id)
-        .then((image) => {
-            res.json(image);
-        })
-        .catch((error) => {
-            res.status(500).json({ message: "error fetching news", error });
+app.get("/api/news/:id", async (req, res) => {
+    try {
+        const singleNews = await getNewsById(req.params.id);
+        res.json(singleNews);
+    } catch (error) {
+        console.log("get singleNews ", error);
+        res.status(500).json({
+            message: "problem with getNewsById",
         });
+    }
 });
 
 app.get("/api/lastnews", async (req, res) => {
