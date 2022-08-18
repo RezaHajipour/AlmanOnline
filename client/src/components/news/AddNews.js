@@ -1,8 +1,7 @@
-import "../styles/AddNews.css";
+import "../../styles/AddNews.css";
 import { useState } from "react";
 
 import { Button, TextField, Container } from "@mui/material";
-
 import { makeStyles } from "@mui/styles";
 
 function AddNews() {

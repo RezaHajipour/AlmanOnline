@@ -1,8 +1,8 @@
+import "../../styles/Home.css";
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import "../styles/Home.css";
 
-const Videos = () => {
+const AllVideos = () => {
     const [allVideos, setAllvideos] = useState([]);
 
     useEffect(() => {
@@ -40,4 +40,4 @@ const Videos = () => {
     );
 };
 
-export default Videos;
+export default AllVideos;

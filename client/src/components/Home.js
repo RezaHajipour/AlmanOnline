@@ -1,7 +1,7 @@
 import "../styles/Home.css";
-import LastNews from "./LastNews";
-import Headlines from "./Headlines";
-import LastVideos from "./LastVideos";
+import LastNews from "./news/LastNews";
+import Headlines from "./news/Headlines";
+import LastVideos from "./videos/LastVideos";
 const JDate = require("jalali-date");
 
 const Home = () => {

@@ -115,7 +115,7 @@ app.get("/api/news", async (req, res) => {
     }
 });
 
-app.get("/news/:id", (req, res) => {
+app.get("/api/news/:id", (req, res) => {
     getNewsById(req.params.image_id)
         .then((image) => {
             res.json(image);

@@ -1,4 +1,4 @@
-import "../styles/AddVideos.css";
+import "../../styles/AddVideos.css";
 import { useState } from "react";
 
 function AddVideos() {

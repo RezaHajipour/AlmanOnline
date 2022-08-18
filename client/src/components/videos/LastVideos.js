@@ -1,6 +1,6 @@
+import "../../styles/Home.css";
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
-import "../styles/Home.css";
 
 const LastVideos = () => {
     const [lastVideos, setLastvideos] = useState([]);

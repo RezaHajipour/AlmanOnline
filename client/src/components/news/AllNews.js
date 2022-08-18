@@ -1,14 +1,13 @@
-import "../styles/News.css";
-import { useEffect, useState } from "react";
+import "../../styles/News.css";
 import NewsCard from "./NewsCard";
+import { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import Link from "@mui/material/Link";
 import { Container } from "@mui/material";
 
-const News = () => {
+const AllNews = () => {
     const [allnews, setAllNews] = useState([]);
-    const [oneNews, setOneNews] = useState([]);
-    console.log("oneNews", oneNews);
+
     console.log("allnews", allnews);
 
     useEffect(() => {
@@ -26,20 +25,6 @@ const News = () => {
             });
     }, []);
 
-    useEffect(() => {
-        fetch("/news/:id", {})
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {
-                if (data.error_message) {
-                    console.log(data.error_message);
-                    history.replaceState("/");
-                    return;
-                }
-                setOneNews(data);
-            });
-    }, []);
     return (
         <Container
             sx={{
@@ -69,9 +54,6 @@ const News = () => {
                                 underline="none"
                                 onClick={() => {
                                     console.info("I'm a button.");
-                                    {
-                                        oneNews.id;
-                                    }
                                 }}
                             >
                                 <NewsCard news={news} />
@@ -84,4 +66,4 @@ const News = () => {
     );
 };
 
-export default News;
+export default AllNews;

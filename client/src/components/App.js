@@ -1,18 +1,19 @@
 import "../styles/App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Nav from "./Nav";
 import Footer from "./Footer";
 import CopyWrite from "./CopyRight";
 import Home from "./Home";
 import Login from "./Login";
-import News from "./News";
-import Videos from "./Videos";
-import AddNews from "./AddNews";
-import AddVideos from "./AddVideos";
+import AllNews from "./news/AllNews";
+import SingleNews from "./news/SingleNews";
+import AddNews from "./news/AddNews";
+import AllVideos from "./videos/AllVideos";
+import AddVideos from "./videos/AddVideos";
 
 const App = () => {
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState([]);
     console.log("user", user);
     useEffect(() => {
         fetch("/api/users/me")
@@ -25,31 +26,34 @@ const App = () => {
             });
     }, []);
     return (
-        <BrowserRouter>
-            <div className="AppContainer">
-                <Nav />
-                <Route path="/" exact>
+        <div className="AppContainer">
+            <Nav />
+            <Switch>
+                <Route exact path="/">
                     <Home />
                 </Route>
-                <Route path="/addvideos">
+                <Route exact path="/addvideos">
                     {user.id ? <AddVideos user={user} /> : <Login />}
                 </Route>
-                <Route path="/addnews">
+                <Route exact path="/addnews">
                     {user.id ? <AddNews user={user} /> : <Login />}
                 </Route>
-                <Route path="/login">
+                <Route exact path="/login">
                     <Login />
                 </Route>
-                <Route path="/videos">
-                    <Videos />
+                <Route exact path="/videos">
+                    <AllVideos />
                 </Route>
-                <Route path="/news">
-                    <News />
+                <Route exact path="/news">
+                    <AllNews />
                 </Route>
-                <Footer />
-                <CopyWrite />
-            </div>
-        </BrowserRouter>
+                <Route exact path="/news/:id">
+                    <SingleNews />
+                </Route>
+            </Switch>
+            <Footer />
+            <CopyWrite />
+        </div>
     );
 };
 

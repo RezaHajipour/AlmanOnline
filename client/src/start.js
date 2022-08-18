@@ -1,8 +1,10 @@
 import ReactDOM from "react-dom";
 import App from "./components/App";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.render(<HelloWorld />, document.querySelector("main"));
-
-function HelloWorld() {
-    return <App />;
-}
+ReactDOM.render(
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>,
+    document.querySelector("main")
+);
