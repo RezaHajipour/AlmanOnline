@@ -76,7 +76,7 @@ function getLastNews({ limit = 1 }) {
         .then(({ rows }) => rows);
 }
 
-function getHeadlines({ limit = 5 }) {
+function getHeadlines({ limit = 6 }) {
     return db
         .query(`SELECT * FROM news ORDER BY id DESC LIMIT $1`, [limit])
         .then(({ rows }) => rows);

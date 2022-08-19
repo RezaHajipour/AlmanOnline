@@ -1,3 +1,4 @@
+import "../../styles/Headlines.css";
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Typography } from "@mui/material";
@@ -28,13 +29,13 @@ const Headlines = () => {
             ) : (
                 headlines.map((headline) => (
                     <Grid item key={headline.id}>
-                        <Link to={`news/${headline.id}`}>
+                        <Link to={`news/${headline.id}`} className="linkStyle">
                             <Typography
                                 className="headline"
                                 component="a"
                                 href="/news:"
                                 sx={{
-                                    textdecoration: "none",
+                                    textDecoration: "none",
                                     color: "#151922",
                                     mb: 1,
                                 }}
