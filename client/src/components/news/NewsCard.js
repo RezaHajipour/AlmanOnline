@@ -9,7 +9,7 @@ const NewsCard = ({ news }) => {
                 <Card variant="string" sx={{ width: 250, height: "250px" }}>
                     <CardMedia
                         component="img"
-                        alt="green iguana"
+                        alt="image"
                         height="140"
                         image={news.news_picture_url}
                     />
