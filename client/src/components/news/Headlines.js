@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 
 const Headlines = () => {
     const [headlines, setHeadlines] = useState([]);
+    console.log("headlines", headlines);
 
     useEffect(() => {
         fetch("/api/headlines", {})

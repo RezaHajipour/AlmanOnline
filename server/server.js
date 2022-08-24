@@ -20,7 +20,7 @@ const {
 } = require("./db");
 const uploader = require("./uploader");
 require("dotenv").config();
-console.log("env port", process.env);
+const { Bucket, s3upload } = require("./s3");
 
 app.use(compression());
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
@@ -166,18 +166,25 @@ app.post("/api/addnews", async function (req, res) {
     res.json(addNews);
 });
 
-app.post("/upload", uploader.single("singleImage"), async function (req, res) {
-    console.log("req.file", req.file);
-    if (req.file) {
-        res.json({
-            success: true,
-        });
-    } else {
-        res.json({
-            success: false,
-        });
+app.post(
+    "/api/addnews",
+    uploader.single("singleImage"), // first we upload to localhost
+    s3upload, // then to S3
+    async function (req, res) {
+        console.log("req.file", req.file);
+        const url = `https://s3.amazonaws.com/${Bucket}/${request.file.filename}`;
+        res.json({ url });
+        if (req.file) {
+            res.json({
+                success: true,
+            });
+        } else {
+            res.json({
+                success: false,
+            });
+        }
     }
-});
+);
 
 app.get("upload", (req, res) => {
     console.log("getting image");
@@ -223,6 +230,6 @@ app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "..", "client", "index.html"));
 });
 
-app.listen(process.env.PORT || 3001, function () {
+app.listen(process.env.PORT, function () {
     console.log("express is listening on port 3001.");
 });

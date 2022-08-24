@@ -8,6 +8,7 @@ const LastNews = () => {
     const classes = useStyles();
 
     const [lastNews, setLastNews] = useState([]);
+    console.log("last news", lastNews);
 
     useEffect(() => {
         fetch("/api/lastnews", {})
