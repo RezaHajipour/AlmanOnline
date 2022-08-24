@@ -1,3 +1,5 @@
+// console.log("log env", process.env.BASE_URL);
+
 const express = require("express");
 const app = express();
 const compression = require("compression");
@@ -17,6 +19,8 @@ const {
     getLastVideos,
 } = require("./db");
 const uploader = require("./uploader");
+require("dotenv").config();
+console.log("env port", process.env);
 
 app.use(compression());
 app.use(express.static(path.join(__dirname, "..", "client", "public")));
@@ -99,6 +103,9 @@ app.get("/api/users/me", async function (req, res) {
     }
     res.json(user);
 });
+
+// ************Cpanel***********
+//*****************************
 
 // ************NEWS************
 //*****************************

@@ -4,6 +4,7 @@ import ReactPlayer from "react-player";
 
 const LastVideos = () => {
     const [lastVideos, setLastvideos] = useState([]);
+    console.log("last videos", lastVideos);
 
     useEffect(() => {
         fetch("/api/lastvideos", {})

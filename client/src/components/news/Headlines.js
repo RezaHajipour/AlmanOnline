@@ -1,7 +1,7 @@
 import "../../styles/Headlines.css";
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
-import { Typography } from "@mui/material";
+// import { Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 
 const Headlines = () => {
@@ -30,18 +30,7 @@ const Headlines = () => {
                 headlines.map((headline) => (
                     <Grid item key={headline.id}>
                         <Link to={`news/${headline.id}`} className="linkStyle">
-                            <Typography
-                                className="headline"
-                                component="a"
-                                href="/news:"
-                                sx={{
-                                    textDecoration: "none",
-                                    color: "#151922",
-                                    mb: 1,
-                                }}
-                            >
-                                {headline.title}
-                            </Typography>
+                            {headline.title}
                         </Link>
                     </Grid>
                 ))
@@ -51,16 +40,15 @@ const Headlines = () => {
 };
 export default Headlines;
 
-// <Link
-//     component="button"
-//     variant="body2"
-//     underline="none"
-//     onClick={() => {
-//         console.info("I'm a button.");
-//     }}
-//     sx={{
-//         textdecoration: "none",
-//         color: "#151922",
-//         mb: 1,
-//     }}
-// ></Link>;
+//  <Typography
+//                                 className="headline"
+//                                 component="a"
+//                                 href="/news:"
+//                                 sx={{
+//                                     textDecoration: "none",
+//                                     color: "#151922",
+//                                     mb: 1,
+//                                 }}
+//                             ></Typography>
+
+//                               </Typography>

@@ -41,8 +41,8 @@ const AllVideos = () => {
                 {!allVideos ? (
                     <p>loading...</p>
                 ) : (
-                    allVideos.map((video) => (
-                        <Grid item key={video.id} sx={{ mt: 2 }}>
+                    allVideos.map((video, index) => (
+                        <Grid item key={index} sx={{ mt: 2 }}>
                             <ReactPlayer
                                 controls
                                 url={video.video_url}

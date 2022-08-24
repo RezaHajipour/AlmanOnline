@@ -2,17 +2,17 @@ import "../styles/Home.css";
 import LastNews from "./news/LastNews";
 import Headlines from "./news/Headlines";
 import LastVideos from "./videos/LastVideos";
-const JDate = require("jalali-date");
+// const JDate = require("jalali-date");
 
 const Home = () => {
-    const jdate = new JDate();
-
+    // const jdate = new JDate();
+    // <p className="date">{jdate.format("dddd DD MMMM YYYY")}</p>;
     return (
         <div className="container">
-            <p className="date">{jdate.format("dddd DD MMMM YYYY")}</p>
             <section className="headContainer">
                 <div className="headRight">
                     <h2 className="headTitle">آخرین خبر</h2>
+                    <p>{process.env.NODE_ENV}</p>
                     <LastNews />
                 </div>
                 <div className="headMiddle">
