@@ -12,7 +12,7 @@ const Home = () => {
             <section className="headContainer">
                 <div className="headRight">
                     <h2 className="headTitle">آخرین خبر</h2>
-                    <p>{process.env.NODE_ENV}</p>
+
                     <LastNews />
                 </div>
                 <div className="headMiddle">

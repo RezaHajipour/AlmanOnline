@@ -1,7 +1,4 @@
 .HomeContainer {
-    /* margin-right: -12px;
-    margin-left: -12px; */
-    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
