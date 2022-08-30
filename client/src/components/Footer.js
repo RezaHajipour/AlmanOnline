@@ -24,12 +24,12 @@ const Footer = () => {
                     <MenuList>
                         <MenuItem>
                             <Link to="/" component={RouterLink}>
-                                Simulation
+                                Register
                             </Link>
                         </MenuItem>
                         <MenuItem>
                             <Link to="/" component={RouterLink}>
-                                Training
+                                Contact
                             </Link>
                         </MenuItem>
                     </MenuList>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </Box>
                 <Box className={classes.footerCopyright}>
                     <Typography component="span" gutterBottom>
-                        Copyright &copy; TMU {new Date().getFullYear()}
+                        Copyright &copy; Alman Online {new Date().getFullYear()}
                     </Typography>
                 </Box>
                 <br />

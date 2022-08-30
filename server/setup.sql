@@ -49,3 +49,10 @@ INSERT INTO videos (user_id,title, description, category, location, video_url) V
 INSERT INTO videos (user_id,title, description, category, location, video_url) VALUES ('3','video title4', 'video  description 4', 'cinema', 'frankfurt', 'https://www.youtube.com/watch?v=RiU9VdYkvMQ');
 
 
+curl -i -X POST http://localhost:3000/api/users \
+   -H 'Content-Type: application/json' \
+   -d '{"first_name":"yo","last_name":"yo", "email":"yo@yo.com", "password":"yo"}'
+
+   curl -i -X POST http://localhost:3000/api/users \
+   -H 'Content-Type: application/json' \
+   -d '{"first_name":"yo","last_name":"yo", "email":"yo@yo.com", "password":"yo"}'

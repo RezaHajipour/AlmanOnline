@@ -44,7 +44,7 @@ let theme = createMuiTheme({
                 color: "#d75f5f",
             },
             completed: {
-                color: "#a3ccc3 !important",
+                color: "#5B6966 !important",
             },
         },
     },

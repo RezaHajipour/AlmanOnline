@@ -3,12 +3,12 @@ const aws = require("aws-sdk");
 
 let secrets;
 if (process.env.NODE_ENV == "production") {
-    secrets = process.env;
+    secrets = process.env; // in prod the secrets are environment variables
 } else {
-    secrets = require("../secrets");
+    secrets = require("../secrets"); // in dev they are in secrets.json which is listed in .gitignore
 }
 
-const Bucket = "alman";
+const Bucket = "mano";
 
 const s3 = new aws.S3({
     accessKeyId: secrets.AWS_ACCESS_KEY_ID,

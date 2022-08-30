@@ -1,6 +1,6 @@
-import "../../styles/Home.css";
-import { useState, useEffect } from "react";
+import "../../styles/AllVideos.css";
 import ReactPlayer from "react-player";
+import { useState, useEffect } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
 import { Container } from "@mui/material";
 

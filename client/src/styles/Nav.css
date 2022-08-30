@@ -1,6 +1,14 @@
-.navContainer {
+/* .navContainer {
     background-color: #111111;
     width: 100%;
     min-height: 10vh;
     color: #f8f8f8;
+} */
+
+.container {
+    margin-top: 0;
+    padding: 0;
+}
+.css-1su9lvs-MuiPaper-root-MuiAppBar-root {
+    background-color: aqua;
 }

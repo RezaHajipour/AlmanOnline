@@ -1,5 +1,3 @@
-// console.log("log env", process.env.BASE_URL);
-
 const express = require("express");
 const app = express();
 const compression = require("compression");
@@ -18,6 +16,7 @@ const {
     createVideo,
     getLastVideos,
 } = require("./db");
+
 const uploader = require("./uploader");
 require("dotenv").config();
 const { Bucket, s3upload } = require("./s3");
@@ -157,39 +156,23 @@ app.get("/api/headlines", async (req, res) => {
         });
     }
 });
-app.post("/api/addnews", async function (req, res) {
-    // console.log("req session user id", req.session.user_id);
-    const addNews = await createNews({
-        user_id: req.session.user_id,
-        ...req.body,
-    });
-    res.json(addNews);
-});
 
 app.post(
-    "/api/addnews",
-    uploader.single("singleImage"), // first we upload to localhost
+    "/api/news",
+    uploader.single("image"), // first we upload to localhost
     s3upload, // then to S3
     async function (req, res) {
-        console.log("req.file", req.file);
-        const url = `https://s3.amazonaws.com/${Bucket}/${request.file.filename}`;
-        res.json({ url });
-        if (req.file) {
-            res.json({
-                success: true,
-            });
-        } else {
-            res.json({
-                success: false,
-            });
-        }
+        // here you can log the request.body as well, to see what contains
+        const url = `https://s3.amazonaws.com/${Bucket}/${req.file.filename}`;
+        const addNews = await createNews({
+            ...req.body,
+            user_id: req.session.user_id,
+            news_picture_url: url,
+        });
+        res.json(addNews);
     }
 );
 
-app.get("upload", (req, res) => {
-    console.log("getting image");
-    res.send();
-});
 // ************VIDEOS**********
 //*****************************
 

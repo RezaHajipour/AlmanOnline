@@ -1,4 +1,4 @@
-.container {
+.HomeContainer {
     /* margin-right: -12px;
     margin-left: -12px; */
     width: 100vw;
@@ -6,7 +6,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 1.5em;
 }
 .date {
     width: 90vw;
@@ -19,6 +18,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: row-reverse;
+    margin-top: 1.5em;
 }
 .headRight {
     width: 50%;
@@ -61,14 +61,12 @@
     text-align: right;
 }
 
-.videos {
+.lastVideoSec {
     width: 90%;
+    margin-top: 1.5em;
 }
 
-.videoContainer {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    width: 100%;
+.generalInfoSec {
+    width: 90%;
+    margin-top: 1.5em;
 }

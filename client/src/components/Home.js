@@ -8,7 +8,7 @@ const Home = () => {
     // const jdate = new JDate();
     // <p className="date">{jdate.format("dddd DD MMMM YYYY")}</p>;
     return (
-        <div className="container">
+        <div className="HomeContainer">
             <section className="headContainer">
                 <div className="headRight">
                     <h2 className="headTitle">آخرین خبر</h2>
@@ -24,11 +24,11 @@ const Home = () => {
                 </div>
             </section>
 
-            <section className="videos">
+            <section className="lastVideoSec">
                 <h2 className="headTitle"> آخرین ویدیوها</h2>
                 <LastVideos />
             </section>
-            <section className="videos">
+            <section className="generalInfoSec">
                 <h2 className="headTitle">اصلاعات عمومی آلمان</h2>
             </section>
         </div>
