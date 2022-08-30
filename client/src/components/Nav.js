@@ -31,21 +31,10 @@ const pages = [
 
 const useStyles = makeStyles(() => ({
     header: {
-        backgroundColor: "#e1e1e1",
-        color: "#a3ccc3",
         boxShadow: "0px 0px 0px",
     },
-    logo: {
-        display: {
-            xs: "none",
-            md: "flex",
-            color: "orange",
-        },
-        mr: 2,
-        ml: 5,
-    },
 
-    link: { textDecoration: "none", color: "#151922" },
+    link: { textDecoration: "none", color: "#0c0c0c" },
 }));
 
 const Nav = () => {
@@ -63,9 +52,23 @@ const Nav = () => {
 
     return (
         <div className="container">
-            <AppBar position="sticky" className={classes.header}>
+            <AppBar
+                position="sticky"
+                className={classes.header}
+                sx={{ backgroundColor: "#92A1B3" }}
+            >
                 <Toolbar disableGutters>
-                    <AdbIcon className={classes.logo} />
+                    <AdbIcon
+                        sx={{
+                            display: {
+                                xs: "none",
+                                md: "flex",
+                                color: "#0c0c0c",
+                            },
+                            mr: 2,
+                            ml: 5,
+                        }}
+                    />
 
                     <Typography
                         variant="h6"
@@ -77,7 +80,7 @@ const Nav = () => {
                             display: {
                                 xs: "none",
                                 md: "flex",
-                                color: "#dc503c",
+                                color: "#ffefc1",
                             },
                             fontFamily: "Noto Sans Arabic",
                             fontWeight: 700,
@@ -166,11 +169,11 @@ const Nav = () => {
                             fontFamily: "Noto Sans Arabic",
                             fontWeight: 700,
                             letterSpacing: ".3rem",
-                            color: "inherit",
+                            color: "#0c0c0c",
                             textDecoration: "none",
                         }}
                     >
-                        Alman Online (m)
+                        Alman Online
                     </Typography>
                     <Box
                         sx={{

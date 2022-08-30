@@ -75,11 +75,7 @@ const useStyles = makeStyles(() => ({
     media: {
         height: "300px",
         paddingTop: "56.25%", // 16:9
-    },
-    cardImage: {
-        height: "100%",
-        width: "100%",
-        objectFit: "cover",
+        // opacity: 0.8,
     },
 
     text: {
@@ -89,12 +85,12 @@ const useStyles = makeStyles(() => ({
         textAlign: "center",
         left: "0",
         right: "0",
-        top: "60%" /* Adjust this value to move the positioned div up and down */,
+        top: "70%" /* Adjust this value to move the positioned div up and down */,
         width: "90%" /* Set the width of the positioned div */,
-        fontSize: "1.8em",
-        // color: "#f8f8f8",
-        color: "#FAF9F6",
-        textShadow: " 0 1px 0 rgba(0, 0, 0, 0.5)",
+        fontSize: "1.1em",
+        color: "#d9d9d9",
+        padding: ".5em",
+        background: "rgb(54, 69, 79, .8)",
     },
 }));
 
@@ -104,14 +100,3 @@ const useStyles = makeStyles(() => ({
 //       src={lastnews.news_picture_url}
 //       className={classes.cardImage}
 //   />;
-
-//    <Card className={classes.card}>
-//             <img
-//                 component="img"
-//                 alt="news Image"
-//                 src={lastnews.news_picture_url}
-//             />
-//             <h2 className={classes.text} variant="h5" component="h2">
-//                 {lastnews.title}
-//             </h2>
-//         </Card>
