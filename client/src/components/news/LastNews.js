@@ -85,12 +85,12 @@ const useStyles = makeStyles(() => ({
         textAlign: "center",
         left: "0",
         right: "0",
-        top: "70%" /* Adjust this value to move the positioned div up and down */,
+        top: "75%" /* Adjust this value to move the positioned div up and down */,
         width: "90%" /* Set the width of the positioned div */,
         fontSize: "1.1em",
         color: "#d9d9d9",
         padding: ".5em",
-        background: "rgb(54, 69, 79, .8)",
+        background: "rgb(54, 69, 79, .5)",
     },
 }));
 

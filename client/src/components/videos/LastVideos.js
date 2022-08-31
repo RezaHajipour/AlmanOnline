@@ -1,6 +1,8 @@
-import "../../styles/Home.css";
+import "../../styles/Videos.css";
 import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
+import Box from "@mui/material/Box";
+import { Typography } from "@mui/material";
 
 const LastVideos = () => {
     const [lastVideos, setLastvideos] = useState([]);
@@ -21,19 +23,37 @@ const LastVideos = () => {
             });
     }, []);
     return (
-        <div className="videoContainer">
+        <div className="lastVideoContainer">
             {!lastVideos ? (
                 <p>loading...</p>
             ) : (
                 lastVideos.map((lastvideo) => (
                     <div key={lastvideo.id}>
-                        <ReactPlayer
-                            controls
-                            url={lastvideo.video_url}
-                            width="250px"
-                            height="200px"
-                        />
-                        <p>{lastvideo.title}</p>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                flexWrap: "wrap",
+                                flexDirection: "column",
+                                justifyContent: "space-between",
+                                alignItems: "center",
+                                m: 1,
+                                width: "250px",
+                                height: "250px",
+                            }}
+                        >
+                            <ReactPlayer
+                                controls
+                                url={lastvideo.video_url}
+                                width="250px"
+                                height="200px"
+                            />
+                            <Typography
+                                variant="body1"
+                                sx={{ textAlign: "right" }}
+                            >
+                                {lastvideo.title}
+                            </Typography>
+                        </Box>
                     </div>
                 ))
             )}

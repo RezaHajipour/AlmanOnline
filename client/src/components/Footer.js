@@ -16,7 +16,7 @@ const Footer = () => {
             <Grid item xs={12} md={10} lg={8}>
                 <Box
                     display="flex"
-                    py={3}
+                    // py={3}
                     width="50%"
                     justifyContent="space-between"
                     className={classes.menuListBox}

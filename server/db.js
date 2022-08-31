@@ -124,7 +124,7 @@ function getAllVideos() {
         .then((result) => result.rows);
 }
 
-function getLastVideos({ limit = 5 }) {
+function getLastVideos({ limit = 4 }) {
     return db
         .query(`SELECT * FROM videos ORDER BY id DESC LIMIT $1`, [limit])
         .then(({ rows }) => rows);

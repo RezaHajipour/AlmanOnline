@@ -1,3 +1,4 @@
+import "../../styles/AddNews.css";
 import { useState } from "react";
 
 function AddNews() {
@@ -21,29 +22,55 @@ function AddNews() {
     }
 
     return (
-        <section>
-            <form onSubmit={onSubmit}>
-                <label>
-                    title
-                    <input type="text" name="title" />
+        <section className="addNewsContainer">
+            <h1 className="AddNewsTitle">Add News</h1>
+            <form className="AddNews-form" onSubmit={onSubmit}>
+                <label className="addNewsLabel">
+                    News Title
+                    <input
+                        placeholder="Write Title of News"
+                        className="AddNews-input"
+                        type="text"
+                        name="title"
+                    />
                 </label>
-                <label>
-                    description
-                    <input type="text" name="description" />
+                <label className="addNewsLabel">
+                    News Description
+                    <textarea
+                        placeholder="Write News Description here"
+                        className="AddNews-textarea "
+                        type="text"
+                        name="description"
+                    />
                 </label>
-                <label>
-                    category
-                    <input type="text" name="category" />
+                <label className="addNewsLabel">
+                    News Category
+                    <input
+                        placeholder="News is classified in which category?"
+                        className="AddNews-input"
+                        type="text"
+                        name="category"
+                    />
                 </label>
-                <label>
-                    location
-                    <input type="text" name="location" />
+                <label className="addNewsLabel">
+                    News Location
+                    <input
+                        placeholder="News happened in which city or country?"
+                        className="AddNews-input"
+                        type="text"
+                        name="location"
+                    />
                 </label>
-                <label>
-                    image
-                    <input type="file" accept="image/*" name="image" />
+                <label className="addNewsLabel">
+                    News Picture
+                    <input
+                        className="AddNews-input"
+                        type="file"
+                        accept="image/*"
+                        name="image"
+                    />
                 </label>
-                <button>send</button>
+                <button className="AddNews-btn">send</button>
             </form>
         </section>
     );

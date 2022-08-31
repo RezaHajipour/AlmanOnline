@@ -1,4 +1,6 @@
-.newsTitle {
+/* AllVideos */
+/*------------------*/
+.AllVideosTitle {
     display: block;
     width: 100%;
     font-size: 1.5em;
@@ -9,4 +11,11 @@
     padding-bottom: 5px;
     color: #a1aab4;
     border-bottom: 2px solid #cbd1d6;
+}
+/* LastVideos */
+/*------------------*/
+.lastVideoContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
 }

@@ -27,8 +27,7 @@ const AllNews = () => {
             sx={{
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
-                alignItems: "center",
+
                 width: "100vw",
             }}
         >
@@ -37,7 +36,7 @@ const AllNews = () => {
                 container
                 rowSpacing={2}
                 columnSpacing={{ xs: 1, sm: 1, md: 2 }}
-                sx={{ width: "80vw", mr: 0, mb: 1 }}
+                sx={{ width: "100%", mr: 0, mb: 1, justifyContent: "center" }}
             >
                 {!allnews ? (
                     <p>loading...</p>

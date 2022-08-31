@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Nav from "./Nav";
 // import NavTest from "./NavTest";
 import Footer from "./Footer";
-import CopyWrite from "./CopyRight";
+// import CopyWrite from "./CopyRight";
 import Home from "./Home";
 import Login from "./Login";
 import AllNews from "./news/AllNews";
@@ -45,7 +45,6 @@ const App = () => {
                 <Route exact path="/" component={Home} />
             </Switch>
             <Footer />
-            <CopyWrite />
         </div>
     );
 };

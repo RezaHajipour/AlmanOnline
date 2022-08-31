@@ -30,28 +30,31 @@ function AddVideos() {
     }
 
     return (
-        <div>
-            <form method="POST" onSubmit={onSubmit} className="AddNews-form">
-                <h1> Please fill the form for adding new video</h1>
-                <p>
+        <div className="addVideosContainer">
+            <h1 className="AddVideoTitle">ADD Videos</h1>
+            <form method="POST" onSubmit={onSubmit} className="AddVideos-form">
+                <h2 className="addVideosHeader">
                     {" "}
+                    Please fill the form for adding new video
+                </h2>
+                <label className="addVideosLabel">
                     video Title
                     <input
                         type="text"
                         name="title"
                         placeholder="Write Title of video"
-                        className="AddNews-input "
+                        className="AddVideo-input"
                         onInput={onInput}
                     />
-                </p>
-                <p>
-                    videos Category
+                </label>
+                <label className="addVideosLabel">
+                    video Category
                     <input
                         type="text"
                         name="category"
                         onInput={onInput}
                         placeholder="Choose Category"
-                        className="AddNews-input "
+                        className="AddVideo-input"
                         list="list-id"
                     ></input>
                     <datalist id="list-id">
@@ -62,39 +65,41 @@ function AddVideos() {
                         <option value=" economics" />
                         <option value="sport" />
                     </datalist>
-                </p>
-                <p>
+                </label>
+                <label className="addVideosLabel">
                     video Location
                     <input
                         type="text"
                         name="location"
                         placeholder="write name of city"
-                        className="AddNews-input "
+                        className="AddVideo-input"
                         onInput={onInput}
                     />
-                </p>
-                <p>
+                </label>
+                <label className="addVideosLabel">
                     video Description
                     <textarea
                         type="text"
                         name="description"
                         placeholder="write video description here"
-                        className="AddNews-textarea"
+                        className="AddVideos-textarea"
                         onInput={onInput}
                     />
-                </p>
+                </label>
                 <br />
-                <p>
+                <label className="addVideosLabel">
                     video Link
                     <input
+                        className="AddVideo-url"
+                        placeholder="write url or paste the link of video here"
                         type="url"
                         name="video_url"
                         required
                         onInput={onInput}
                     />
-                </p>
+                </label>
                 <br />
-                <button className="AddNews-btn">Add video</button>
+                <button className="AddVideos-btn">Add video</button>
             </form>
         </div>
     );
