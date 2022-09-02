@@ -1,4 +1,6 @@
 import "../../styles/News.css";
+import Nav from "../Nav";
+import Footer from "../Footer";
 import NewsCard from "./NewsCard";
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -23,32 +25,40 @@ const AllNews = () => {
     }, []);
 
     return (
-        <Container
-            sx={{
-                display: "flex",
-                flexDirection: "column",
-
-                width: "100vw",
-            }}
-        >
-            <h2 className="newsTitle"> اخبار</h2>
-            <Grid
-                container
-                rowSpacing={2}
-                columnSpacing={{ xs: 1, sm: 1, md: 2 }}
-                sx={{ width: "100%", mr: 0, mb: 1, justifyContent: "center" }}
+        <>
+            <Nav />
+            <Container
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    width: "100vw",
+                }}
             >
-                {!allnews ? (
-                    <p>loading...</p>
-                ) : (
-                    allnews.map((news) => (
-                        <Grid item key={news.id} sx={{ mt: 2 }}>
-                            <NewsCard news={news} />
-                        </Grid>
-                    ))
-                )}
-            </Grid>
-        </Container>
+                <h2 className="newsTitle"> اخبار</h2>
+                <Grid
+                    container
+                    rowSpacing={2}
+                    columnSpacing={{ xs: 1, sm: 1, md: 2 }}
+                    sx={{
+                        width: "100%",
+                        mr: 0,
+                        mb: 1,
+                        justifyContent: "center",
+                    }}
+                >
+                    {!allnews ? (
+                        <p>loading...</p>
+                    ) : (
+                        allnews.map((news) => (
+                            <Grid item key={news.id} sx={{ mt: 2 }}>
+                                <NewsCard news={news} />
+                            </Grid>
+                        ))
+                    )}
+                </Grid>
+            </Container>
+            <Footer />
+        </>
     );
 };
 

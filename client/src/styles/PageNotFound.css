@@ -1,0 +1,18 @@
+.NotFound-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.errorCode {
+    font-size: 10em;
+}
+
+.notfound {
+    font-size: 4em;
+}
+
+.goBack {
+    text-decoration: none;
+}

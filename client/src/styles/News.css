@@ -1,3 +1,18 @@
+.NewsContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.NewsList {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1.5em;
+}
+
 .newsTitle {
     display: block;
     width: 100%;
@@ -9,4 +24,7 @@
     padding-bottom: 5px;
     color: #a1aab4;
     border-bottom: 2px solid #cbd1d6;
+}
+
+.NewsListContainer {
 }

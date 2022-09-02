@@ -1,10 +1,7 @@
 import "../styles/App.css";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Nav from "./Nav";
-// import NavTest from "./NavTest";
-import Footer from "./Footer";
-// import CopyWrite from "./CopyRight";
+
 import Home from "./Home";
 import Login from "./Login";
 import AllNews from "./news/AllNews";
@@ -12,6 +9,7 @@ import SingleNews from "./news/SingleNews";
 import AllVideos from "./videos/AllVideos";
 import AddVideos from "./videos/AddVideos";
 import AddNews from "./news/AddNews";
+import PageNotFound from "./PageNotFound";
 
 const App = () => {
     const [user, setUser] = useState([]);
@@ -30,7 +28,6 @@ const App = () => {
 
     return (
         <div className="AppContainer">
-            <Nav />
             <Switch>
                 <Route exact path="/addvideos">
                     {user.id ? <AddVideos user={user} /> : <Login />}
@@ -43,8 +40,8 @@ const App = () => {
                 <Route exact path="/news" component={AllNews} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/" component={Home} />
+                <Route component={PageNotFound} />
             </Switch>
-            <Footer />
         </div>
     );
 };

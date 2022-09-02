@@ -39,7 +39,7 @@ CREATE TABLE videos (
 INSERT INTO users (first_name,last_name, email, password_hash, profile_picture_url) VALUES ('yo','yo', 'yo@mail.com', '123',  'https://uktie.eu/wp-content/uploads/2017/01/358588-news-images.jpg');
 
 INSERT INTO news (user_id,title, description, category, location, news_picture_url) VALUES ('1','headline', 'this is description', 'politics', 'berlin', 'https://uktie.eu/wp-content/uploads/2017/01/358588-news-images.jpg');
-INSERT INTO news (user_id, title, description, category, location, news_picture_url) VALUES ('1','second news headline', 'this is description for second news', 'culture', 'hamburg', 'https://uktie.eu/wp-content/uploads/2017/01/358588-news-images.jpg');
+INSERT INTO news (user_id, title, description, category, location, news_picture_url) VALUES ('1','second news headline', 'this is description for second news with frau Kreuzberg', 'culture', 'hamburg', 'https://uktie.eu/wp-content/uploads/2017/01/358588-news-images.jpg');
 INSERT INTO news (user_id, title, description, category, location, news_picture_url) VALUES ('1','Monkeypox: After the first human-to-dog case, are pets at risk of getting the virus from owners?', 'Monkeypox: After the first human-to-dog case, are pets at risk of getting the virus from owners?', 'social', 'hannover', 'https://static.euronews.com/articles/stories/06/94/71/20/1100x619_cmsv2_d394f6ac-f7fd-599d-9d20-659b486655cd-6947120.jpg');
 
 
