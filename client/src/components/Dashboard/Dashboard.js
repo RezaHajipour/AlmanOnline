@@ -70,7 +70,7 @@ const menuItems = [
         // onclick: () => history.push("/adminevents"),
     },
 ];
-const Dashboard = () => {
+const Dashboard = ({ children }) => {
     const classes = useStyles();
     const history = useHistory();
 
@@ -101,6 +101,7 @@ const Dashboard = () => {
                     </ListItem>
                 </List>
             </Drawer>
+            <div>{children}</div>
         </Box>
     );
 };

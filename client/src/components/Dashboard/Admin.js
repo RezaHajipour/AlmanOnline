@@ -1,30 +1,26 @@
 import { Route } from "react-router-dom";
 import Dashboard from "./Dashboard";
-import AdminUsers from "./AdminUsers";
+import Users from "./Users";
 // import AdminNews from "./AdminNews";
 import AddNews from "../news/AddNews";
+import GermanInfo from "./GermanInfo";
+import Videos from "./Videos";
+import Education from "./Education";
+import Immigration from "./Immigration";
+import Events from "./Events";
 
-import AdminGermanInfo from "./AdminGermanInfo";
-import AdminVideos from "./AdminVideos";
-import AdminEducation from "./AdminEducation";
-import AdminImmigration from "./AdminImmigration";
-import AdminEvents from "./AdminEvents";
-
-const Admin = () => {
+const Admin = ({ children }) => {
     return (
         <div>
+            {children}
             <Dashboard />
-            <Route exact path="/admin/users" component={AdminUsers} />
-            <Route exact path="/add/news" component={AddNews} />
-            <Route exact path="/admin/germaninfo" component={AdminGermanInfo} />
-            <Route exact path="/admin/videos" component={AdminVideos} />
-            <Route exact path="/admin/education" component={AdminEducation} />
-            <Route
-                exact
-                path="/admin/immigration"
-                component={AdminImmigration}
-            />
-            <Route exact path="/admin/events" component={AdminEvents} />
+            <Route exact path="/admin/users" component={Users} />
+            <Route exact path="/admin/news" component={AddNews} />
+            <Route exact path="/admin/germaninfo" component={GermanInfo} />
+            <Route exact path="/admin/videos" component={Videos} />
+            <Route exact path="/admin/education" component={Education} />
+            <Route exact path="/admin/immigration" component={Immigration} />
+            <Route exact path="/admin/events" component={Events} />
         </div>
     );
 };
