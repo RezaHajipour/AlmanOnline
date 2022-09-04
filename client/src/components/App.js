@@ -1,15 +1,15 @@
 import "../styles/App.css";
 import { Route, Switch } from "react-router-dom";
 import { useState, useEffect } from "react";
-
 import Home from "./Home";
 import Login from "./Login";
 import AllNews from "./news/AllNews";
 import SingleNews from "./news/SingleNews";
 import AllVideos from "./videos/AllVideos";
-import AddVideos from "./videos/AddVideos";
-import AddNews from "./news/AddNews";
+import Admin from "./Dashboard/Admin";
 import PageNotFound from "./PageNotFound";
+import AddNews from "./news/AddNews";
+import AdminEducation from "./dashboard/AdminEducation";
 
 const App = () => {
     const [user, setUser] = useState([]);
@@ -29,16 +29,18 @@ const App = () => {
     return (
         <div className="AppContainer">
             <Switch>
-                <Route exact path="/addvideos">
-                    {user.id ? <AddVideos user={user} /> : <Login />}
+                <Route exact path="/admin">
+                    {user.id ? <Admin user={user} /> : <Login />}
                 </Route>
-                <Route exact path="/addnews">
+                <Route exact path="/admin/news">
                     {user.id ? <AddNews user={user} /> : <Login />}
+                </Route>
+                <Route exact path="/admin/education">
+                    {user.id ? <AdminEducation user={user} /> : <Login />}
                 </Route>
                 <Route exact path="/news/:id" component={SingleNews} />
                 <Route exact path="/videos" component={AllVideos} />
                 <Route exact path="/news" component={AllNews} />
-                <Route exact path="/login" component={Login} />
                 <Route exact path="/" component={Home} />
                 <Route component={PageNotFound} />
             </Switch>
@@ -47,50 +49,3 @@ const App = () => {
 };
 
 export default App;
-
-// <Switch>
-// <Route exact path="/admin">
-//     {user.id ? <Admin user={user} /> : <Login />}
-// </Route>
-//     <Route exact path="/adminNews">
-//         <AdminNews />
-//     </Route>
-
-//     <div>
-//         <Nav />
-//         <Route exact path="/">
-//             <Home />
-//         </Route>
-//         <Route exact path="/login">
-//             <Login />
-//         </Route>
-//         <Route exact path="/videos">
-//             <AllVideos />
-//         </Route>
-//         <Route exact path="/news">
-//             <AllNews />
-//         </Route>
-//         <Route exact path="/news/:id">
-//             <SingleNews />
-//         </Route>
-//         <Footer />
-//         <CopyWrite />
-//     </div>
-// </Switch>;
-
-//**************** */
-//  <div className="AppContainer">
-//      <Route exact path="/admin">
-//          {user.id ? <Dash user={user} /> : <Login />}
-//      </Route>
-//      <Nav />
-//      <Switch>
-//          <Route exact path="/news/:id" component={SingleNews} />
-//          <Route exact path="/login" component={Login} />
-//          <Route exact path="/videos" component={AllVideos} />
-//          <Route exact path="/news" component={AllNews} />
-//          <Route exact path="/" component={Home} />
-//      </Switch>
-//      <Footer />
-//      <CopyWrite />
-//  </div>;

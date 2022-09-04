@@ -91,6 +91,12 @@ app.post("/api/login", function (req, res) {
         });
 });
 
+// **********------logout------************
+// ****************************************
+app.post("/api/logout", function (req, res) {
+    req.session = null;
+    res.json({ success: true });
+});
 // ************USERS***********
 //*****************************
 

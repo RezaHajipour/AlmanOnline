@@ -1,5 +1,6 @@
 import "../../styles/AddNews.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function AddNews() {
     const [formData, setFormData] = useState([]);
@@ -72,6 +73,8 @@ function AddNews() {
                 </label>
                 <button className="AddNews-btn">send</button>
             </form>
+
+            <Link to="/admin">Go back to Admin page</Link>
         </section>
     );
 }
