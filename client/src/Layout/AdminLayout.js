@@ -1,16 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import Dashboard from "./Dashboard";
-import Users from "./Users";
-// import AdminNews from "./AdminNews";
-import AddNews from "../news/AddNews";
-import GermanInfo from "./GermanInfo";
-import Videos from "./Videos";
-import Education from "./Education";
-import Immigration from "./Immigration";
-import Events from "./Events";
-import Logout from "../Logout";
+import Dashboard from "../components/Dashboard/Dashboard";
+import Users from "../components/Dashboard/Users";
+import AddNews from "../components/news/AddNews";
+import GermanInfo from "../components/Dashboard/GermanInfo";
+import Videos from "../components/Dashboard/Videos";
+import Education from "../components/Dashboard/Education";
+import Immigration from "../components/Dashboard/Immigration";
+import Events from "../components/Dashboard/Events";
+import Logout from "../components/Logout";
 
-const Admin = () => {
+const AdminLayout = () => {
     return (
         <div>
             <Dashboard />
@@ -28,4 +27,4 @@ const Admin = () => {
         </div>
     );
 };
-export default Admin;
+export default AdminLayout;

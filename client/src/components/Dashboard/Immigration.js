@@ -1,5 +1,5 @@
 const Immigration = () => {
-    return <h1>admin AdminImmigration</h1>;
+    return <h1>admin AdminImmigration AdminImmigration AdminImmigration</h1>;
 };
 
 export default Immigration;

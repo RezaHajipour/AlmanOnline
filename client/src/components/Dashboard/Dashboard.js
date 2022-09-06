@@ -1,6 +1,6 @@
 import Logout from "../Logout";
-import { useHistory } from "react-router-dom";
-import { withRouter } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+// import { withRouter } from "react-router-dom";
 import { makeStyles } from "@mui/styles";
 import {
     List,
@@ -70,9 +70,9 @@ const menuItems = [
         // onclick: () => history.push("/adminevents"),
     },
 ];
-const Dashboard = ({ children }) => {
+const Dashboard = () => {
     const classes = useStyles();
-    const history = useHistory();
+    const navigate = useNavigate();
 
     return (
         <Box sx={{ display: "flex" }}>
@@ -87,7 +87,7 @@ const Dashboard = ({ children }) => {
                         <ListItem
                             button
                             key={item.text}
-                            onClick={() => history.push(item.path)}
+                            onClick={() => navigate(item.path)}
                         >
                             <ListItemIcon>{item.icon}</ListItemIcon>
                             <ListItemText primary={item.text} />
@@ -101,11 +101,11 @@ const Dashboard = ({ children }) => {
                     </ListItem>
                 </List>
             </Drawer>
-            <div>{children}</div>
+            <div></div>
         </Box>
     );
 };
-export default withRouter(Dashboard);
+export default Dashboard;
 
 const drawerWidth = 200;
 const useStyles = makeStyles({

@@ -1,6 +1,6 @@
 import "../../styles/Videos.css";
-import Nav from "../Nav";
-import Footer from "../Footer";
+// import Nav from "../Nav";
+// import Footer from "../Footer";
 import ReactPlayer from "react-player";
 import { useState, useEffect } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -27,7 +27,6 @@ const AllVideos = () => {
     }, []);
     return (
         <>
-            <Nav />
             <Container
                 sx={{
                     display: "flex",
@@ -83,7 +82,6 @@ const AllVideos = () => {
                     )}
                 </Grid>
             </Container>
-            <Footer />
         </>
     );
 };

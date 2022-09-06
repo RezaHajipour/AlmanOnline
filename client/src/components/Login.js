@@ -18,7 +18,7 @@ function Login() {
                     setFormData({ error: data.error });
                     return;
                 }
-                window.location.href = "/admin";
+                window.location.href = "/dash";
             });
     }
 

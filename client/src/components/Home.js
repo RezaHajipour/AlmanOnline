@@ -1,6 +1,6 @@
 import "../styles/Home.css";
-import Nav from "./Nav";
-import Footer from "./Footer";
+// import Nav from "./Nav";
+// import Footer from "./Footer";
 
 import LastNews from "./news/LastNews";
 import Headlines from "./news/Headlines";
@@ -12,7 +12,6 @@ const Home = () => {
     // <p className="date">{jdate.format("dddd DD MMMM YYYY")}</p>;
     return (
         <>
-            <Nav />
             <div className="HomeContainer">
                 <section className="headContainer">
                     <div className="headRight">
@@ -37,7 +36,6 @@ const Home = () => {
                     <h2 className="headTitle">اصلاعات عمومی آلمان</h2>
                 </section>
             </div>
-            <Footer />
         </>
     );
 };

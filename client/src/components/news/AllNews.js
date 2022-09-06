@@ -1,6 +1,6 @@
 import "../../styles/News.css";
-import Nav from "../Nav";
-import Footer from "../Footer";
+// import Nav from "../Nav";
+// import Footer from "../Footer";
 import NewsCard from "./NewsCard";
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Unstable_Grid2";
@@ -26,7 +26,6 @@ const AllNews = () => {
 
     return (
         <>
-            <Nav />
             <Container
                 sx={{
                     display: "flex",
@@ -57,7 +56,6 @@ const AllNews = () => {
                     )}
                 </Grid>
             </Container>
-            <Footer />
         </>
     );
 };
